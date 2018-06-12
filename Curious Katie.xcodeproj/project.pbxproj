@@ -12,6 +12,9 @@
 		899FEAD620C92CCC0023074A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 899FEAD420C92CCC0023074A /* Main.storyboard */; };
 		899FEAD820C92CD20023074A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 899FEAD720C92CD20023074A /* Assets.xcassets */; };
 		899FEADB20C92CD20023074A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 899FEAD920C92CD20023074A /* LaunchScreen.storyboard */; };
+		899FEAE620C92DD20023074A /* Interests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899FEAE520C92DD20023074A /* Interests.swift */; };
+		899FEAE820C92DEB0023074A /* Participants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899FEAE720C92DEB0023074A /* Participants.swift */; };
+		89D444F820CE92DD00B100AE /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D444F720CE92DD00B100AE /* Conversation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		899FEAD720C92CD20023074A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		899FEADA20C92CD20023074A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		899FEADC20C92CD20023074A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		899FEAE520C92DD20023074A /* Interests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interests.swift; sourceTree = "<group>"; };
+		899FEAE720C92DEB0023074A /* Participants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participants.swift; sourceTree = "<group>"; };
+		89D444F720CE92DD00B100AE /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,41 @@
 		899FEACF20C92CCC0023074A /* Curious Katie */ = {
 			isa = PBXGroup;
 			children = (
+				899FEAE420C92D940023074A /* Model */,
+				899FEAE320C92D550023074A /* ModelView */,
+				899FEAE220C92D470023074A /* ViewController */,
 				899FEAD020C92CCC0023074A /* AppDelegate.swift */,
-				899FEAD220C92CCC0023074A /* ViewController.swift */,
 				899FEAD420C92CCC0023074A /* Main.storyboard */,
 				899FEAD720C92CD20023074A /* Assets.xcassets */,
 				899FEAD920C92CD20023074A /* LaunchScreen.storyboard */,
 				899FEADC20C92CD20023074A /* Info.plist */,
 			);
 			path = "Curious Katie";
+			sourceTree = "<group>";
+		};
+		899FEAE220C92D470023074A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				899FEAD220C92CCC0023074A /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		899FEAE320C92D550023074A /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelView;
+			sourceTree = "<group>";
+		};
+		899FEAE420C92D940023074A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				899FEAE720C92DEB0023074A /* Participants.swift */,
+				899FEAE520C92DD20023074A /* Interests.swift */,
+				89D444F720CE92DD00B100AE /* Conversation.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +170,9 @@
 			files = (
 				899FEAD320C92CCC0023074A /* ViewController.swift in Sources */,
 				899FEAD120C92CCC0023074A /* AppDelegate.swift in Sources */,
+				899FEAE620C92DD20023074A /* Interests.swift in Sources */,
+				89D444F820CE92DD00B100AE /* Conversation.swift in Sources */,
+				899FEAE820C92DEB0023074A /* Participants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
