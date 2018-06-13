@@ -9,13 +9,12 @@
 import Foundation
 
 class Participants {
+
     
-    static let maxInterests = 10
-    
-    //Defines Gender for use in the sode
-    enum Gender {
-        case Male
-        case Female
+    //Defines Gender for use in the code
+    enum Gender: String{
+        case male = "Male"
+        case female = "Female"
     }
     
     var age: Int
