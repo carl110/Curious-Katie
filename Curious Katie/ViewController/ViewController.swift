@@ -9,16 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
 
+    let CMV = RandomGenerator()
 
     @IBAction func Next(_ sender: UIButton) {
-        print ()
+        print (CMV.randPlayers)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    }
+        CMV.randomiser()   }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
