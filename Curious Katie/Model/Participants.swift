@@ -6,7 +6,7 @@
 //  Copyright © 2018 Carl Wainwright. All rights reserved.
 //
 
-import Foundation
+import Foundation 
 
 class Participants {
 

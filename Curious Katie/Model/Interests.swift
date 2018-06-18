@@ -18,4 +18,18 @@ class Interests {
         self.description = description
         self.requiredEquipment = requiredEquipment
     }
+    
+    class Football: Interests {
+        
+    }
+    
+//    func shareInterest() {
+//        print ("I have an interest in \(interest), which involves \(description)/n")
+//        if requiredEquipment.isEmpty {
+//        }
+//        else {
+//            print (requiredEquipment)
+//        }
+//    }
+
 }

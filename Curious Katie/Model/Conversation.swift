@@ -7,8 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 class Conversation {
-    let maxParticipants = 12
-    let minParticipants = 2
+    let player = ["John \(Participants.Gender.male)", "James \(Participants.Gender.male)", "Jill \(Participants.Gender.female)", "Mellisa \(Participants.Gender.female)", "Katherin \(Participants.Gender.female)", "Luke \(Participants.Gender.male)", "Robert \(Participants.Gender.male)", "Leona \(Participants.Gender.female)", "Simon \(Participants.Gender.male)", "Conor \(Participants.Gender.male)", "Saorlaith \(Participants.Gender.female)", "Niahm \(Participants.Gender.female)"]
+    
+
+
+
+
 }
