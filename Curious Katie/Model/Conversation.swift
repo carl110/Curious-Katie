@@ -15,5 +15,7 @@ class Conversation {
     let players = ["John \(Participants.Gender.male)", "James \(Participants.Gender.male)", "Jill \(Participants.Gender.female)", "Mellisa \(Participants.Gender.female)", "Katherin \(Participants.Gender.female)", "Luke \(Participants.Gender.male)", "Robert \(Participants.Gender.male)", "Leona \(Participants.Gender.female)", "Simon \(Participants.Gender.male)", "Conor \(Participants.Gender.male)", "Saorlaith \(Participants.Gender.female)", "Niahm \(Participants.Gender.female)"]
     
 
-//    var John = Participants.init(age: 21, name: "John", gender: Participants.Gender., myInterest: <#T##[Interests]#>)
+    var John = Participants.init(age: 21, name: "John", gender: Participants.Gender.male, myInterest: Interests.generalHobbies)
+    var James = Participants.init(age: 32, name: "James", gender: Participants.Gender.male, myInterest: Interests.generalHobbies)
+    
 }
