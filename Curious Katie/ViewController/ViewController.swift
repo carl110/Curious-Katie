@@ -11,8 +11,15 @@ import UIKit
 class ViewController: UIViewController {
 
     let CMV = RandomGenerator()
+    
+    
 
-    @IBAction func Next(_ sender: UIButton) {
+    
+    @IBOutlet weak var interests: UIPickerView!
+    
+
+    
+    @IBAction func next(_ sender: UIButton) {
         print (CMV.randPlayers)
     }
     override func viewDidLoad() {

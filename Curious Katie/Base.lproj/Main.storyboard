@@ -19,8 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yA-yM-mmc">
-                                <rect key="frame" x="152.5" y="318.5" width="71" height="30"/>
+                                <rect key="frame" x="16" y="611" width="71" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Z3l-HM-k9z"/>
+                                </constraints>
                                 <state key="normal" title="Player List">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -28,14 +31,28 @@
                                     <action selector="Next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ItP-5q-sus"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKT-GN-mSE">
+                                <rect key="frame" x="16" y="234" width="320" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="IYV-wn-cQH"/>
+                                    <constraint firstAttribute="width" constant="320" id="wkz-2i-Dy7"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="0yA-yM-mmc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CbN-8A-vUA"/>
-                            <constraint firstItem="0yA-yM-mmc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pYv-Za-Hhy"/>
+                            <constraint firstItem="0yA-yM-mmc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Kk5-MT-xkf"/>
+                            <constraint firstItem="FKT-GN-mSE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="YXE-e3-e2V"/>
+                            <constraint firstItem="FKT-GN-mSE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iTB-p2-B76"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0yA-yM-mmc" secondAttribute="bottom" constant="16" id="uqW-Jb-7Ku"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FKT-GN-mSE" secondAttribute="trailing" constant="16" id="vTM-jz-oRu"/>
+                            <constraint firstItem="FKT-GN-mSE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vtU-zp-6T2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="Interests" destination="FKT-GN-mSE" id="1WQ-YL-2V3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
