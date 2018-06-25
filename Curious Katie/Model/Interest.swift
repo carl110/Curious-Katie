@@ -18,12 +18,8 @@ class Interest {
     var description: String
     var requiredEquipment: String
     
-
-    
-
-    
     static func generateGeneralHobbies() -> [Interest] {
-        var hobbie = [Interest]()
+        var hobby = [Interest]()
         
         let football = Interest(name: "football", description: "Football is a family of team sports that involve, to varying degrees, kicking a ball with a foot to score a goal.", requiredEquipment: "Football")
         let rugby = Interest(name: "rugby", description: "Rugby is a game played with an oval ball by two teams of 15 players (in rugby union play) or 13 players (in rugby league play).", requiredEquipment: "Rugby ball")
@@ -33,12 +29,13 @@ class Interest {
         let hiking = Interest(name: "hiking", description: "a long, vigorous walk, usually on trails (footpaths), in the countryside", requiredEquipment: "Comfortable shoes")
         let running = Interest(name: "running", description: "A method of terrestrial locomotion allowing rapid movement on foot.", requiredEquipment: "running shoes")
         let horseriding = Interest(name: "horse riding", description: "The skill of riding, driving, steeplechasing or vaulting with horses", requiredEquipment: "Horse with a saddle")
+        let skiing = Interest(name: "skiing", description: "a means of transport, a recreational activity or a competitive winter sport in which the participant uses skis to glide on snow. ", requiredEquipment: "Skis and ski sticks")
         let abseiling = Interest(name: "abseiling", description: "To descend a rock face or other near-vertical surface by using a doubled rope coiled round the body and fixed at a higher point.", requiredEquipment: "Rope, harnes, helmet and carabiners")
         
-        hobbie.append(contentsOf: [football, rugby, snooker, swimming, paintballing, hiking, running, horseriding, abseiling])
+        hobby.append(contentsOf: [football, rugby, snooker, swimming, paintballing, hiking, running, horseriding, skiing, abseiling])
         
         
-        return hobbie
+        return hobby
     }
     
     init(name: String, description: String, requiredEquipment: String) {
