@@ -8,7 +8,7 @@
 
 import Foundation 
 
-class Participants {
+class Participant {
 
     
     //Defines Gender for use in the code
@@ -20,9 +20,9 @@ class Participants {
     var age: Int
     var name: String
     var gender: Gender
-    var myInterest = [Interests]()
+    var myInterest = [Interest]()
     
-    init (age:Int, name:String, gender:Gender, myInterest: [Interests]) {
+    init (age:Int, name:String, gender:Gender, myInterest: [Interest]) {
         self.age = age
         self.name = name
         self.gender = gender

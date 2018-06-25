@@ -20,7 +20,7 @@ class ViewController: UIViewController {
 
     
     @IBAction func next(_ sender: UIButton) {
-        print (CMV.randPlayers)
+        print (CMV.randPlayer)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

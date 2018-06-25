@@ -12,10 +12,10 @@ import Foundation
 class Conversation {
    
     
-    let players = ["John \(Participants.Gender.male)", "James \(Participants.Gender.male)", "Jill \(Participants.Gender.female)", "Mellisa \(Participants.Gender.female)", "Katherin \(Participants.Gender.female)", "Luke \(Participants.Gender.male)", "Robert \(Participants.Gender.male)", "Leona \(Participants.Gender.female)", "Simon \(Participants.Gender.male)", "Conor \(Participants.Gender.male)", "Saorlaith \(Participants.Gender.female)", "Niahm \(Participants.Gender.female)"]
+    let player = ["John \(Participant.Gender.male)", "James \(Participant.Gender.male)", "Jill \(Participant.Gender.female)", "Mellisa \(Participant.Gender.female)", "Katherin \(Participant.Gender.female)", "Luke \(Participant.Gender.male)", "Robert \(Participant.Gender.male)", "Leona \(Participant.Gender.female)", "Simon \(Participant.Gender.male)", "Conor \(Participant.Gender.male)", "Saorlaith \(Participant.Gender.female)", "Niahm \(Participant.Gender.female)"]
     
 
-    var John = Participants.init(age: 21, name: "John", gender: Participants.Gender.male, myInterest: Interests.generalHobbies)
-    var James = Participants.init(age: 32, name: "James", gender: Participants.Gender.male, myInterest: Interests.generalHobbies)
+    var John = Participant.init(age: 21, name: "John", gender: Participant.Gender.male, myInterest: Interest.generalHobbies)
+    var James = Participant.init(age: 32, name: "James", gender: Participant.Gender.male, myInterest: Interest.generalHobbies)
     
 }
