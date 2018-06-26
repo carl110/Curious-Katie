@@ -11,7 +11,7 @@ import Foundation
 //Using Hashable to allow the Set - ensuring unique hashable values
 struct Person : Hashable {
     
-        private static let cities: [String?] = ["Dublin", "Portsmouth", "Clare", "Galway", "Ash Vale", nil]
+        private static let cities: [String] = ["Dublin", "Portsmouth", "Clare", "Galway", "Ash Vale", "Prefer not to say"]
     
     //Defines Gender for use in the code
     enum Gender: String{
@@ -59,12 +59,13 @@ struct Person : Hashable {
             let index: Int = Int(arc4random_uniform(UInt32(people.count)))
             // create array of names from key in people dictionary above
             let name = Array(people.keys)[index]
+            
     
             //add details to Person Set and append to particpants array
             participants.insert(Person(name: name,
                                        age: 18 + Int(arc4random_uniform(UInt32(70 - 18))),
                                        gender: people[name]!,
-                                       city: cities[Int(arc4random_uniform(UInt32(cities.count)))]!))
+                                       city: cities[Int(arc4random_uniform(UInt32(cities.count)))]))
         }
     
         return Array(participants)
