@@ -8,9 +8,10 @@
 
 import Foundation 
 
-class Participant {
-
-    static let arrayOfNames = Participant.generateArrayOfNames()
+//Using Hashable to allow the Set - ensuring unique hashable values
+struct Person : Hashable {
+    
+        private static let cities: [String?] = ["Dublin", "Portsmouth", "Clare", "Galway", "Ash Vale", nil]
     
     //Defines Gender for use in the code
     enum Gender: String{
@@ -21,35 +22,52 @@ class Participant {
     var age: Int
     var name: String
     var gender: Gender
+    var city: String
     
-    static func generateArrayOfNames() -> [Participant] {
-        var person = [Participant]()
-        
-        let John = Participant(name: "John", age: 32, gender: Participant.Gender.male)
-        let Jill = Participant(name: "Jill", age: 36, gender: Participant.Gender.female)
-        let Mellisa = Participant(name: "Mellisa", age: 21, gender: Participant.Gender.female)
-        let Katherine = Participant(name: "Katherine", age: 38, gender: Participant.Gender.female)
-        let Luke = Participant(name: "Luke", age: 33, gender: Participant.Gender.male)
-        let Robert = Participant(name: "Robert", age: 28, gender: Participant.Gender.male)
-        let Leona = Participant(name: "Leona", age: 19, gender: Participant.Gender.female)
-        let Simon = Participant(name: "Simon", age: 39, gender: Participant.Gender.male)
-        let Conor = Participant(name: "Conor", age: 20, gender: Participant.Gender.male)
-        let Saorlaith = Participant(name: "Saorlaith", age: 45, gender: Participant.Gender.female)
-        let Jane = Participant(name: "Jane", age: 25, gender: Participant.Gender.female)
-        let Niahm = Participant(name: "Niahm", age: 21, gender: Participant.Gender.female)
-        
-        person.append(contentsOf: [John, Jill, Mellisa, Katherine, Luke, Robert, Leona, Simon, Conor, Saorlaith, Jane, Niahm])
-        
-        return person
-    }
     
-    init (name:String, age:Int, gender:Gender) {
+    init (name:String, age:Int, gender:Gender, city:String) {
         self.age = age
         self.name = name
         self.gender = gender
+        self.city = city
+        
     }
+    // Dictionary with names as key and gender as value
+    private static let people: [String:Gender] = ["John":Gender.male,
+                                                  "Jill":Gender.female,
+                                                  "Mellisa":Gender.female,
+                                                  "Katherine":Gender.female,
+                                                  "Luke":Gender.male,
+                                                  "Robert":Gender.male,
+                                                  "Leona":Gender.female,
+                                                  "Simon":Gender.male,
+                                                  "Conor":Gender.male,
+                                                  "Saorlaith":Gender.female,
+                                                  "Jane":Gender.female,
+                                                  "Niahm":Gender.female]
     
+
     
+    static func generateParticipants(amount: Int) -> [Person] {
     
+        //Set creates an unordered list of participants
+        var participants = Set<Person>()
     
+        while participants.count < amount {
+    
+            //random number from count of people
+            let index: Int = Int(arc4random_uniform(UInt32(people.count)))
+            // create array of names from key in people dictionary above
+            let name = Array(people.keys)[index]
+    
+            //add details to Person Set and append to particpants array
+            participants.insert(Person(name: name,
+                                       age: 18 + Int(arc4random_uniform(UInt32(70 - 18))),
+                                       gender: people[name]!,
+                                       city: cities[Int(arc4random_uniform(UInt32(cities.count)))]!))
+        }
+    
+        return Array(participants)
+        
+    }
 }
