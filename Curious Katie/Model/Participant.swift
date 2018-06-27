@@ -9,9 +9,16 @@
 import Foundation 
 
 //Using Hashable to allow the Set - ensuring unique hashable values
-struct Person : Hashable {
+struct Person : Hashable{
+    var hashValue: Int {
+        return (city?.hashValue)!
+    }
     
-        private static let cities: [String] = ["Dublin", "Portsmouth", "Clare", "Galway", "Ash Vale", "Prefer not to say"]
+
+    
+    
+    
+        private static let cities: [String?] = ["Dublin", "Portsmouth", "Clare", "Galway", "Ash Vale", nil]
     
     //Defines Gender for use in the code
     enum Gender: String{
@@ -22,14 +29,16 @@ struct Person : Hashable {
     var age: Int
     var name: String
     var gender: Gender
-    var city: String
+    var city: String?
     
     
-    init (name:String, age:Int, gender:Gender, city:String) {
+    init (name:String, age:Int, gender:Gender, city:String?) {
         self.age = age
         self.name = name
         self.gender = gender
         self.city = city
+        
+        
         
     }
     // Dictionary with names as key and gender as value
@@ -70,5 +79,11 @@ struct Person : Hashable {
     
         return Array(participants)
         
+        
+
     }
+
+
+
 }
+
