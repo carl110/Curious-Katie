@@ -28,8 +28,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="Next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ItP-5q-sus"/>
-                                    <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D2q-TK-oHO"/>
+                                    <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xv2-pS-gVJ"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKT-GN-mSE">
@@ -53,8 +52,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="Interests" destination="FKT-GN-mSE" id="1WQ-YL-2V3"/>
-                        <outlet property="interests" destination="FKT-GN-mSE" id="edW-tj-lDj"/>
+                        <outlet property="interests" destination="FKT-GN-mSE" id="YYY-Nr-AOu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
