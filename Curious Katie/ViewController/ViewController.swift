@@ -25,7 +25,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     //pull list of random partyicipants through
     let participant = Person.generateParticipants(amount: Int(arc4random_uniform(10)) + 2)
     
-    
+    var interestsData = [String]()
     
     @IBAction func showParticipants(_ sender: UIButton) {
         //Print name and attributes of participants
@@ -38,13 +38,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     
     
-    @IBOutlet weak var interests: UIPickerView!
+    @IBOutlet weak var interests: UIPickerView! = UIPickerView ()
     
-    var interestsData = [String]()
-//
-//    var interestsData : [Person.Gender] = []
-//
-//
+   
+
     
     
     
@@ -52,15 +49,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func next(_ sender: UIButton) {
 
 
-//        for i in hobby {
-//            print (i.name)
-//        }
-//
 
-
-
-//        print (participant[1].name)
-//        print (participant.count)
         
     }
     override func viewDidLoad() {
@@ -73,7 +62,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
 
 
-////
     }
 
     override func didReceiveMemoryWarning() {
