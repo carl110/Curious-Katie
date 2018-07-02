@@ -8,12 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return interestsData.count
+    }
+    private func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return interestsData[row]
+    }
 
-//    let CMV = RandomGenerator()
-    let hobby = Interest.generateGeneralHobbies()
+
+    let hobby = Interest.name
     //pull list of random partyicipants through
     let participant = Person.generateParticipants(amount: Int(arc4random_uniform(10)) + 2)
+    
     
     
     @IBAction func showParticipants(_ sender: UIButton) {
@@ -28,6 +39,8 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var interests: UIPickerView!
+    
+    var interestsData = [String]()
 //
 //    var interestsData : [Person.Gender] = []
 //
@@ -39,10 +52,11 @@ class ViewController: UIViewController {
     @IBAction func next(_ sender: UIButton) {
 
 
-        for i in hobby {
-            print (i.name)
-        }
-        
+//        for i in hobby {
+//            print (i.name)
+//        }
+//
+
 
 
 //        print (participant[1].name)
@@ -52,8 +66,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-//        CMV.randomiser()
-//
+
+        interestsData = hobby
+        interests.dataSource = self
+        interests.delegate = self
 
 
 
