@@ -10,9 +10,7 @@ import Foundation
 
 class Interest {
     
-    
-        static let generalHobbies = Interest.generateGeneralHobbies()
-    
+
     var name: String
         //["Football", "Rugby", "Snooker", "Swimming", "Paintballing", "Hiking", "Running", "Horse Riding", "Skiing", "Abseiling"]
     var description: String

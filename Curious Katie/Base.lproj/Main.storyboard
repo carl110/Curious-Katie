@@ -38,9 +38,46 @@
                                     <constraint firstAttribute="width" constant="320" id="wkz-2i-Dy7"/>
                                 </constraints>
                             </pickerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pn5-yf-pa5">
+                                <rect key="frame" x="125" y="36" width="124" height="40"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="w3q-Y4-E4m">
+                                        <rect key="frame" x="0.0" y="0.0" width="124" height="40"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Q46-tj-6vZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="124" height="40"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="muD-5b-uUm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uc-3z-qXH">
+                                                                <rect key="frame" x="0.0" y="0.0" width="124" height="40"/>
+                                                                <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="wah-8y-d38"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Show Participants">
+                                                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="showParticipants:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AH8-JX-2hG"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="5uc-3z-qXH" firstAttribute="centerX" secondItem="muD-5b-uUm" secondAttribute="centerX" id="Xoi-tg-w1i"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="pn5-yf-pa5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="EXY-fm-wTC"/>
                             <constraint firstItem="0yA-yM-mmc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Kk5-MT-xkf"/>
                             <constraint firstItem="FKT-GN-mSE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="YXE-e3-e2V"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0yA-yM-mmc" secondAttribute="trailing" constant="288" id="fQ3-MV-3PB"/>
