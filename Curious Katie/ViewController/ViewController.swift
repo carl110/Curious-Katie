@@ -23,13 +23,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
     let hobby = Interest.name
     //pull list of random partyicipants through
-    let participant = Person.generateParticipants(amount: Int(arc4random_uniform(10)) + 2)
+    var participants = Person.generateParticipants(amount: Int(arc4random_uniform(10)) + 2)
     
     var interestsData = [String]()
     
     @IBAction func showParticipants(_ sender: UIButton) {
         //Print name and attributes of participants
-        participant.forEach { (participant) in
+        participants.forEach { (participant) in
             print("My name is \(participant.name), I am \(participant.gender.rawValue) aged \(participant.age) and I live in \(participant.city ?? "Paris")")
             
         }
@@ -52,6 +52,18 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
         
     }
+    
+    
+    @IBAction func nextParticipant(_ sender: UIButton) {
+    }
+    
+    @IBAction func addInterest(_ sender: UIButton) {
+    }
+    
+    @IBAction func noMoreInterests(_ sender: UIButton) {
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

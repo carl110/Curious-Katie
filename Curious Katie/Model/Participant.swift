@@ -11,7 +11,7 @@ import Foundation
 //Using Hashable to allow the Set - ensuring unique hashable values
 struct Person : Hashable{
     var hashValue: Int {
-        return self.name.hashValue
+        return self.name.hashValue ^ self.age.hashValue
     }
     
 
