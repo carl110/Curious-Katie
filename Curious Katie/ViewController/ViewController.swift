@@ -21,16 +21,20 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
 
 
-
+    //Declares hobby is the name array from Interest file
     var hobby = Interest.name
     //pull list of random participants through
     var participants = Person.generateParticipants(amount: Int(arc4random_uniform(10)) + 2)
   
+    //declare value for participantCoutIncrease
     var participantCountIncrease = 0
+    
+    //Create empty Dctionary with Array
+    var interestDictionary = [String: [String]]()
 
   
     
-    
+    //declares data used in UIPickerView
     var interestsData = [String]()
     
     @IBAction func showParticipants(_ sender: UIButton) {
@@ -56,34 +60,39 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     
     @IBAction func next(_ sender: UIButton) {
-
-
-
         
+        print (interestDictionary)
+        
+
     }
     
     
     @IBAction func nextParticipant(_ sender: UIButton) {
         
-        //Only show one available participant in order
-        if participantCountIncrease < participants.count {
+
 
             print("\(participants[participantCountIncrease].name) please select your interests from the list.")
             
             
-            participantCountIncrease += 1
+  
             
-            //Reloads array with Interests from hobby
-            interestsData = hobby
-            
-            //Reloads the pickerview to show all interests
-            interests.reloadAllComponents()
-        }
+
     
    
     }
     
     @IBAction func addInterest(_ sender: UIButton) {
+        
+        //*****Ignore****** prints interest
+        //print (interestsData[interests.selectedRow(inComponent: 0)])
+
+        //append interest to name in array (need to see about doing dict or something else)
+       // participants[participantCountIncrease].name.append(interestsData[interests.selectedRow(inComponent: 0)])
+        
+        //Add each interest to new array for each participant
+        interestDictionary["\(participants[participantCountIncrease].name)"] = (interestDictionary["\(participants[participantCountIncrease].name)"] ?? []) + ["\(interestsData[interests.selectedRow(inComponent: 0)])"]
+
+        
         
         //remove selected data from pickerview
         interestsData.remove(at: interests.selectedRow(inComponent: 0))
@@ -109,6 +118,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @IBAction func noMoreInterests(_ sender: UIButton) {
+        
+        //Only show one available participant in order
+        if participantCountIncrease < participants.count {
+         
+            //increases participantcount by 1
+            participantCountIncrease += 1
+            
+            //Reloads array with Interests from hobby
+            interestsData = hobby
+            
+            //Reloads the pickerview to show all interests
+            interests.reloadAllComponents()
+        }
+        
+        
     }
     
     
@@ -116,6 +140,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
+        
         interestsData = hobby
         interests.dataSource = self
         interests.delegate = self
