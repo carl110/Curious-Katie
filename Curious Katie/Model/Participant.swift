@@ -11,7 +11,7 @@ import Foundation
 //Using Hashable to allow the Set - ensuring unique hashable values
 struct Person : Hashable{
     var hashValue: Int {
-        return self.name.hashValue ^ self.age.hashValue
+        return name.hashValue ^ age.hashValue ^ gender.hashValue ^ Int(arc4random_uniform(100))
     }
     
 
