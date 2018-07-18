@@ -53,6 +53,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         participants.forEach { (participant) in
             print("My name is \(participant.name), I am \(participant.gender.rawValue) aged \(participant.age) and I live in \(participant.city ?? "Paris")")
             
+            showParticipants.disableButton()
+            startAddingInterests.enableButton()
+            addInterest.enableButton()
+            noMoreInterests.enableButton()
+            
         }
     }
 
@@ -82,6 +87,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         print("\(participants[participantCountIncrease].name) please select your interests from the list.")
         
+        startAddingInterests.disableButton()
         
         
         
@@ -125,6 +131,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         else {
             
+            addInterest.disableButton()
+            noMoreInterests.disableButton()
+            playerList.enableButton()
+            interests.isHidden = true
+            
         }
         
         
@@ -141,7 +152,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         interests.delegate = self
         
         
-        
+        playerList.disableButton()
+        startAddingInterests.disableButton()
+        addInterest.disableButton()
+        noMoreInterests.disableButton()
         
         
         
