@@ -21,17 +21,26 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
 
 
-    let hobby = Interest.name
-    //pull list of random partyicipants through
+
+    var hobby = Interest.name
+    //pull list of random participants through
     var participants = Person.generateParticipants(amount: Int(arc4random_uniform(10)) + 2)
+  
+    var participantCountIncrease = 0
+
+  
+    
     
     var interestsData = [String]()
     
     @IBAction func showParticipants(_ sender: UIButton) {
-        //Print name and attributes of participants
+        
+
+        //Print name and attributes of all participants
         participants.forEach { (participant) in
             print("My name is \(participant.name), I am \(participant.gender.rawValue) aged \(participant.age) and I live in \(participant.city ?? "Paris")")
             
+
         }
         
     }
@@ -55,9 +64,39 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     
     @IBAction func nextParticipant(_ sender: UIButton) {
+        
+        //Only show one available participant in order
+        if participantCountIncrease < participants.count {
+
+            print("\(participants[participantCountIncrease].name) please select your interests from the list.")
+            
+            
+            participantCountIncrease += 1
+        }
+    
+   
     }
     
     @IBAction func addInterest(_ sender: UIButton) {
+        
+
+
+
+        print ((interestsData[interests.selectedRow(inComponent: 0)]))
+        
+        //participants["hobby"] = "\(interestsData[interests.selectedRow(inComponent: 0)])"
+
+//        participants[participantCountIncrease].name.append("\n \(interestsData[interests.selectedRow(inComponent: 0)])")
+        
+      //  hobby [hobby] = "\(interestsData[interests.selectedRow(inComponent: 0)])"
+
+
+    //    var newInterest =  interestsData[interests.selectedRow(inComponent: 0)]
+        
+       // participants[participantCountIncrease].name.append(newInterest)
+        
+
+        
     }
     
     @IBAction func noMoreInterests(_ sender: UIButton) {
@@ -71,6 +110,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         interestsData = hobby
         interests.dataSource = self
         interests.delegate = self
+
+        
+
+
 
 
 
