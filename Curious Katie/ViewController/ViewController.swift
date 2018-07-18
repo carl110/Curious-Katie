@@ -61,7 +61,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBAction func next(_ sender: UIButton) {
         
-        print (interestDictionary)
+        interestDictionary.forEach { (participant) in
+            
+            print ("My name is \(participant.key) and I like \(participant.value)")
+            
+            
+        }
         
 
     }
@@ -83,17 +88,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBAction func addInterest(_ sender: UIButton) {
         
-        //*****Ignore****** prints interest
-        //print (interestsData[interests.selectedRow(inComponent: 0)])
-
-        //append interest to name in array (need to see about doing dict or something else)
-       // participants[participantCountIncrease].name.append(interestsData[interests.selectedRow(inComponent: 0)])
-        
         //Add each interest to new array for each participant
         interestDictionary["\(participants[participantCountIncrease].name)"] = (interestDictionary["\(participants[participantCountIncrease].name)"] ?? []) + ["\(interestsData[interests.selectedRow(inComponent: 0)])"]
 
-        
-        
         //remove selected data from pickerview
         interestsData.remove(at: interests.selectedRow(inComponent: 0))
 
@@ -101,19 +98,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         //reload pickerview after the prior removal above
         interests.delegate = self
         
-        
-        //participants["hobby"] = "\(interestsData[interests.selectedRow(inComponent: 0)])"
-
-//        participants[participantCountIncrease].name.append("\n \(interestsData[interests.selectedRow(inComponent: 0)])")
-        
-      //  hobby [hobby] = "\(interestsData[interests.selectedRow(inComponent: 0)])"
-
-
-    //    var newInterest =  interestsData[interests.selectedRow(inComponent: 0)]
-        
-       // participants[participantCountIncrease].name.append(newInterest)
-        
-
         
     }
     
