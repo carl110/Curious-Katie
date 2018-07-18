@@ -72,6 +72,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
             
             participantCountIncrease += 1
+            
+            //Reloads array with Interests from hobby
+            interestsData = hobby
+            
+            //Reloads the pickerview to show all interests
+            interests.reloadAllComponents()
         }
     
    
@@ -79,10 +85,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBAction func addInterest(_ sender: UIButton) {
         
+        //remove selected data from pickerview
+        interestsData.remove(at: interests.selectedRow(inComponent: 0))
 
 
-
-        print ((interestsData[interests.selectedRow(inComponent: 0)]))
+        //reload pickerview after the prior removal above
+        interests.delegate = self
+        
         
         //participants["hobby"] = "\(interestsData[interests.selectedRow(inComponent: 0)])"
 
