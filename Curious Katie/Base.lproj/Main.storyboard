@@ -28,7 +28,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xv2-pS-gVJ"/>
+                                    <action selector="playerList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Heg-Ui-jJe"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKT-GN-mSE">
@@ -82,7 +82,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextParticipant:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rLq-v1-IC9"/>
+                                    <action selector="startAddingInterests:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KVp-yY-MEy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBd-Lj-4xf">
@@ -122,7 +122,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="addInterest" destination="QBd-Lj-4xf" id="pQL-BX-7Uz"/>
                         <outlet property="interests" destination="FKT-GN-mSE" id="YYY-Nr-AOu"/>
+                        <outlet property="noMoreInterests" destination="2VL-8D-h4X" id="hRD-fQ-wAi"/>
+                        <outlet property="playerList" destination="0yA-yM-mmc" id="4sC-e6-rVi"/>
+                        <outlet property="showParticipants" destination="5uc-3z-qXH" id="lbP-PQ-A4C"/>
+                        <outlet property="startAddingInterests" destination="wMZ-Cg-XYb" id="Nn1-cg-Krv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
