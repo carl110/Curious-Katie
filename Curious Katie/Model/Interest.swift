@@ -10,7 +10,7 @@ import Foundation
 
 class Interest {
     
-    public static let name = ["Football", "Rugby", "Snooker", "Swimming", "Paintballing", "Hiking", "Running", "Horse Riding", "Skiing", "Abseiling"]
+//    public static let name = ["Football", "Rugby", "Snooker", "Swimming", "Paintballing", "Hiking", "Running", "Horse Riding", "Skiing", "Abseiling"]
 
     var name: String
         //["Football", "Rugby", "Snooker", "Swimming", "Paintballing", "Hiking", "Running", "Horse Riding", "Skiing", "Abseiling"]
