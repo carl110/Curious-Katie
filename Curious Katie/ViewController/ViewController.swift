@@ -29,6 +29,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     //declare value for participantCoutIncrease
     var participantCountIncrease = 0
     
+    var valueIncrease = 0
     //Create empty Dctionary with Array
     var interestDictionary = [String: [String]]()
     
@@ -69,13 +70,19 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBAction func playerList(_ sender: UIButton) {
         
+
+        
         interestDictionary.forEach { (participant) in
             
             print ("My name is \(participant.key) and I like \(participant.value)")
             
+//            if participant.value == hobby.map({$0.name}) {
+//                print (hobby.map({$0.description}))
+//            }
             
         }
         
+        valueIncrease += 1
         
     }
     
@@ -116,13 +123,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBAction func noMoreInterests(_ sender: UIButton) {
         
-                   participantCountIncrease += 1
+        //increases participantcount by 1
+        participantCountIncrease += 1
         
         //Only show one available participant in order
         if participantCountIncrease < participants.count {
-            
-            //increases participantcount by 1
- 
             
             print("\(participants[participantCountIncrease].name) please select your interests from the list.")
             
