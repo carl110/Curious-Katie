@@ -75,6 +75,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         interestDictionary.forEach { (participant) in
             
+            
+            //valueIncrease increases array count to show 1 at a time ******** need to find a way to have if statement or something to not cause error when key does not have many values as the others
             print ("My name is \(participant.key) and I like \(participant.value[valueIncrease])")
             
 //            if participant.value == hobby.map({$0.name}) {
