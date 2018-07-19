@@ -11,7 +11,7 @@ import Foundation
 //Using Hashable to allow the Set - ensuring unique hashable values
 struct Person : Hashable{
     var hashValue: Int {
-        return name.hashValue ^ age.hashValue ^ gender.hashValue ^ Int(arc4random_uniform(100))
+        return name.hashValue
     }
     
 
@@ -69,12 +69,18 @@ struct Person : Hashable{
             // create array of names from key in people dictionary above
             let name = Array(people.keys)[index]
             
+            //checks no duplicate names are used
+            if participants.contains(where: {($0.name == name)}) {
+            }
+            else {
+            
     
             //add details to Person Set and append to particpants array
             participants.insert(Person(name: name,
                                        age: 18 + Int(arc4random_uniform(UInt32(70 - 18))),
                                        gender: people[name]!,
                                        city: cities[Int(arc4random_uniform(UInt32(cities.count)))]))
+            }
         }
     
         return Array(participants)
