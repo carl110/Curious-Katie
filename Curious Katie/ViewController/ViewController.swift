@@ -72,18 +72,22 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
 
         
+        
         interestDictionary.forEach { (participant) in
             
-            print ("My name is \(participant.key) and I like \(participant.value)")
+            print ("My name is \(participant.key) and I like \(participant.value[valueIncrease])")
             
 //            if participant.value == hobby.map({$0.name}) {
 //                print (hobby.map({$0.description}))
 //            }
             
         }
+
         
         valueIncrease += 1
         
+        
+
     }
     
     
