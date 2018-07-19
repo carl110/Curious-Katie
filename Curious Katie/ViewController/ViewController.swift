@@ -22,7 +22,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     
     //Declares hobby is the name array from Interest file
-    var hobby = Interest.name
+    var hobby = Interest.generateGeneralHobbies()
     //pull list of random participants through
     var participants = Person.generateParticipants(amount: Int(arc4random_uniform(10)) + 2)
     
@@ -55,8 +55,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
             showParticipants.disableButton()
             startAddingInterests.enableButton()
-            addInterest.enableButton()
-            noMoreInterests.enableButton()
+
             
         }
     }
@@ -88,9 +87,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         print("\(participants[participantCountIncrease].name) please select your interests from the list.")
         
         startAddingInterests.disableButton()
+        addInterest.enableButton()
+
         
-        
-        
+        interests.isHidden = false
         
         
         
@@ -101,12 +101,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         //Add each interest to new array for each participant
         interestDictionary["\(participants[participantCountIncrease].name)"] = (interestDictionary["\(participants[participantCountIncrease].name)"] ?? []) + ["\(interestsData[interests.selectedRow(inComponent: 0)])"]
         
+        
         //remove selected data from pickerview
         interestsData.remove(at: interests.selectedRow(inComponent: 0))
         
         
         //reload pickerview after the prior removal above
         interests.delegate = self
+        
+        noMoreInterests.enableButton()
         
         
     }
@@ -124,7 +127,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             print("\(participants[participantCountIncrease].name) please select your interests from the list.")
             
             //Reloads array with Interests from hobby
-            interestsData = hobby
+            interestsData = hobby.map({$0.name})
             
             //Reloads the pickerview to show all interests
             interests.reloadAllComponents()
@@ -138,6 +141,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
         }
         
+        noMoreInterests.disableButton()
         
     }
     
@@ -147,7 +151,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // Do any additional setup after loading the view, typically from a nib.
         
         
-        interestsData = hobby
+        interestsData = hobby.map({$0.name})
         interests.dataSource = self
         interests.delegate = self
         
@@ -157,6 +161,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         addInterest.disableButton()
         noMoreInterests.disableButton()
         
+        interests.isHidden = true
         
         
         
