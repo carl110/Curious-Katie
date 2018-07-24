@@ -10,6 +10,10 @@ import Foundation
 
 //Using Hashable to allow the Set - ensuring unique hashable values
 struct Person : Hashable{
+    static func == (lhs: Person, rhs: Person) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
     var hashValue: Int {
         return name.hashValue
     }
@@ -30,6 +34,7 @@ struct Person : Hashable{
     var name: String
     var gender: Gender
     var city: String?
+    var interests = [Interest]()
     
     
     init (name:String, age:Int, gender:Gender, city:String?) {
