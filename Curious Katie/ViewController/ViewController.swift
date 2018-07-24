@@ -9,39 +9,24 @@
 import UIKit
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return interestsData.count
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return interestsData[row]
-    }
+
     
     
     //Declares hobby is the name array from Interest file
     var hobby = Interest.generateGeneralHobbies()
     //pull list of random participants through
     var participants = Person.generateParticipants(amount: Int(arc4random_uniform(10)) + 2)
-    
     //declare value for participantCoutIncrease
     var participantCountIncrease = 0
-    
     var valueIncrease = 0
     //Create empty Dctionary with Array
     var interestDictionary = [String: [String]]()
-    
-    
-    
     //declares data used in UIPickerView
     var interestsData = [String]()
     
     
     
     @IBOutlet weak var interests: UIPickerView!
-    
     @IBOutlet weak var showParticipants: UIButton!
     @IBOutlet weak var playerList: UIButton!
     @IBOutlet weak var startAddingInterests: UIButton!
@@ -111,6 +96,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBAction func addInterest(_ sender: UIButton) {
         
+        
+        //*******Need to work out how to append interest to participants**********
+        participants.insert(interestsData[interests.selectedRow(inComponent: 0)], at: participants[participantCountIncrease].interests)
+        
+        
         //Add each interest to new array for each participant
         interestDictionary["\(participants[participantCountIncrease].name)"] = (interestDictionary["\(participants[participantCountIncrease].name)"] ?? []) + ["\(interestsData[interests.selectedRow(inComponent: 0)])"]
         
@@ -178,11 +168,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
     
-    
-}
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return interestsData.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return interestsData[row]
+        
+    }
 
+}
