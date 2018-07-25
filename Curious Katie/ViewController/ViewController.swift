@@ -69,13 +69,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 ////                print (hobby.map({$0.description}))
 ////            }
 //
-        participants.forEach{ (participant) in
-            print("My name is \(participant.name), and I like \(participant.interests.description)")
-        }
+
 //
 //        }
 
         
+        participants.forEach{ (participant) in
+            print("My name is \(participant.name).")
+                participant.interests.forEach{ (interest) in
+                print ("I like \(interest.name), which involves \(interest.description) and requires \(interest.requiredEquipment)")
+                }
+        }
         valueIncrease += 1
         
         
@@ -104,6 +108,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         //Let newInterestName equal the selected row in pickerview
         let newInterestName = interestsData[interestsPickerView.selectedRow(inComponent: 0)]
+        
         //make new interest from structure of Interest with the name as newInterestName
         let newInterest = Interest(name: newInterestName, description: "some description", requiredEquipment: "equipment")
         

@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKT-GN-mSE">
-                                <rect key="frame" x="16" y="234" width="343" height="200"/>
+                                <rect key="frame" x="16" y="233.5" width="343" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="IYV-wn-cQH"/>
                                     <constraint firstAttribute="width" constant="320" id="wkz-2i-Dy7"/>
@@ -75,10 +75,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wMZ-Cg-XYb">
-                                <rect key="frame" x="113" y="96" width="149" height="30"/>
+                                <rect key="frame" x="133" y="96" width="110" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Start adding Interests">
+                                <state key="normal" title="Next Participant">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -123,7 +123,7 @@
                     </view>
                     <connections>
                         <outlet property="addInterest" destination="QBd-Lj-4xf" id="pQL-BX-7Uz"/>
-                        <outlet property="interests" destination="FKT-GN-mSE" id="YYY-Nr-AOu"/>
+                        <outlet property="interestsPickerView" destination="FKT-GN-mSE" id="YYY-Nr-AOu"/>
                         <outlet property="noMoreInterests" destination="2VL-8D-h4X" id="hRD-fQ-wAi"/>
                         <outlet property="playerList" destination="0yA-yM-mmc" id="4sC-e6-rVi"/>
                         <outlet property="showParticipants" destination="5uc-3z-qXH" id="lbP-PQ-A4C"/>
