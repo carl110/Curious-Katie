@@ -9,7 +9,7 @@
 import Foundation 
 
 //Using Hashable to allow the Set - ensuring unique hashable values
-struct Person : Hashable{
+class Person : Hashable{
     static func == (lhs: Person, rhs: Person) -> Bool {
         return lhs.name == rhs.name
     }
