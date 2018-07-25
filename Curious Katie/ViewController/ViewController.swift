@@ -24,9 +24,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     //declares data used in UIPickerView
     var interestsData = [String]()
     
+
     
     
-    @IBOutlet weak var interests: UIPickerView!
+    @IBOutlet weak var interestsPickerView: UIPickerView!
     @IBOutlet weak var showParticipants: UIButton!
     @IBOutlet weak var playerList: UIButton!
     @IBOutlet weak var startAddingInterests: UIButton!
@@ -58,17 +59,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
         
         
-        interestDictionary.forEach { (participant) in
-            
-            
-            //valueIncrease increases array count to show 1 at a time ******** need to find a way to have if statement or something to not cause error when key does not have many values as the others
-            print ("My name is \(participant.key) and I like \(participant.value[valueIncrease])")
-            
-//            if participant.value == hobby.map({$0.name}) {
-//                print (hobby.map({$0.description}))
-//            }
-            
+//        interestDictionary.forEach { (participant) in
+//
+//
+//            //valueIncrease increases array count to show 1 at a time ******** need to find a way to have if statement or something to not cause error when key does not have many values as the others
+//            print ("My name is \(participant.key) and I like \(participant.value[valueIncrease])")
+//
+////            if participant.value == hobby.map({$0.name}) {
+////                print (hobby.map({$0.description}))
+////            }
+//
+        participants.forEach{ (participant) in
+            print("My name is \(participant.name), and I like \(participant.interests.description)")
         }
+//
+//        }
 
         
         valueIncrease += 1
@@ -88,7 +93,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         addInterest.enableButton()
 
         
-        interests.isHidden = false
+        interestsPickerView.isHidden = false
         
         
         
@@ -97,20 +102,26 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func addInterest(_ sender: UIButton) {
         
         
-        //*******Need to work out how to append interest to participants**********
-        participants.insert(interestsData[interests.selectedRow(inComponent: 0)], at: participants[participantCountIncrease].interests)
+        //Let newInterestName equal the selected row in pickerview
+        let newInterestName = interestsData[interestsPickerView.selectedRow(inComponent: 0)]
+        //make new interest from structure of Interest with the name as newInterestName
+        let newInterest = Interest(name: newInterestName, description: "some description", requiredEquipment: "equipment")
         
+        //Append newInterest to the selected participant
+        participants.first { $0.name == participants[participantCountIncrease].name }?.interests.append(newInterest)
+        
+       
         
         //Add each interest to new array for each participant
-        interestDictionary["\(participants[participantCountIncrease].name)"] = (interestDictionary["\(participants[participantCountIncrease].name)"] ?? []) + ["\(interestsData[interests.selectedRow(inComponent: 0)])"]
+        interestDictionary["\(participants[participantCountIncrease].name)"] = (interestDictionary["\(participants[participantCountIncrease].name)"] ?? []) + ["\(interestsData[interestsPickerView.selectedRow(inComponent: 0)])"]
         
         
         //remove selected data from pickerview
-        interestsData.remove(at: interests.selectedRow(inComponent: 0))
+        interestsData.remove(at: interestsPickerView.selectedRow(inComponent: 0))
         
         
         //reload pickerview after the prior removal above
-        interests.delegate = self
+        interestsPickerView.delegate = self
         
         noMoreInterests.enableButton()
         
@@ -131,14 +142,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             interestsData = hobby.map({$0.name})
             
             //Reloads the pickerview to show all interests
-            interests.reloadAllComponents()
+            interestsPickerView.reloadAllComponents()
         }
         else {
             
             addInterest.disableButton()
             noMoreInterests.disableButton()
             playerList.enableButton()
-            interests.isHidden = true
+            interestsPickerView.isHidden = true
             
         }
         
@@ -153,8 +164,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         
         interestsData = hobby.map({$0.name})
-        interests.dataSource = self
-        interests.delegate = self
+        interestsPickerView.dataSource = self
+        interestsPickerView.delegate = self
         
         
         playerList.disableButton()
@@ -162,7 +173,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         addInterest.disableButton()
         noMoreInterests.disableButton()
         
-        interests.isHidden = true
+        interestsPickerView.isHidden = true
         
         
         
