@@ -136,9 +136,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if participantCountIncrease == participants.count {
             participantCountIncrease = 0
             
-            //********Tring to filter interest for picker list against interests held by participant
-            //interestsData = hobby.map({$0.name}).filter{ !participants[participantCountIncrease].interests.contains(where: $0.)}
-            
+            let interestsData = hobby.filter {$0.name == "\(participants[participantCountIncrease].interests)"}
+
             //Reloads array with Interests from hobby
             //interestsData = hobby.map({$0.name})
             
@@ -156,9 +155,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
             //Let newInterestName equal the selected row in pickerview
             let newInterestName = interestsData[interestsPickerView.selectedRow(inComponent: 0)]
+            //lookup against hobbby to pull description
+            let newDescription = hobby.map({$0.description})[hobby.map({$0.name}).index(of: "\(interestsData[interestsPickerView.selectedRow(inComponent: 0)])")!]
+            //lookup against hobby to pull required equipment
+            let newRequiredEquipment = hobby.map({$0.requiredEquipment})[hobby.map({$0.name}).index(of: "\(interestsData[interestsPickerView.selectedRow(inComponent: 0)])")!]
             
             //make new interest from structure of Interest with the name as newInterestName
-            let newInterest = Interest(name: newInterestName, description: "some description", requiredEquipment: "equipment")
+            let newInterest = Interest(name: newInterestName, description: newDescription, requiredEquipment: newRequiredEquipment)
             
             //Append newInterest to the selected participant
             participants.first { $0.name == participants[participantCountIncrease].name }?.interests.append(newInterest)
