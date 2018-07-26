@@ -91,11 +91,24 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         //*************filters participants, but removes them - change to if participant filter is true then continue or next participant
 //        participants = participants.filter {$0.finishedAddingInterests == false}
         
+        
+        
         if participants[participantCountIncrease].finishedAddingInterests == true {
-            //increases participantcount by 1
-            participantCountIncrease += 1
             
-            print("\(participants[participantCountIncrease].name) please select your interests from the list.")
+            for _ in participants {
+                if participants[participantCountIncrease].finishedAddingInterests == true {
+                
+                //increases participantcount by 1
+                participantCountIncrease += 1
+                
+                print("\(participants[participantCountIncrease].name) please select your interests from the list.")
+                } else {
+                    addInterest.disableButton()
+                    noMoreInterests.disableButton()
+                    playerList.enableButton()
+                }
+
+            }
             
         }
 
