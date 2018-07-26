@@ -36,7 +36,7 @@ class Person : Hashable{
     var city: String?
     var interests = [Interest]()
     //Initial value of bool is false
-    var finishedAddingInterests: Bool!
+    var finishedAddingInterests: Bool = false
     
     
     init (name:String, age:Int, gender:Gender, city:String?) {
@@ -44,7 +44,7 @@ class Person : Hashable{
         self.name = name
         self.gender = gender
         self.city = city
-        
+
         
         
     }

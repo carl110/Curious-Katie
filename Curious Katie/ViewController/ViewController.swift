@@ -19,8 +19,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     //declare value for participantCoutIncrease
     var participantCountIncrease = 0
     var valueIncrease = 0
-    //Create empty Dctionary with Array
-    var interestDictionary = [String: [String]]()
+//    //Create empty Dctionary with Array
+//    var interestDictionary = [String: [String]]()
     //declares data used in UIPickerView
     var interestsData = [String]()
     
@@ -55,27 +55,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     
     @IBAction func playerList(_ sender: UIButton) {
-        
 
-        
-        
-//        interestDictionary.forEach { (participant) in
-//
-//
-//            //valueIncrease increases array count to show 1 at a time ******** need to find a way to have if statement or something to not cause error when key does not have many values as the others
-//            print ("My name is \(participant.key) and I like \(participant.value[valueIncrease])")
-//
-////            if participant.value == hobby.map({$0.name}) {
-////                print (hobby.map({$0.description}))
-////            }
-//
-
-//
-//        }
-
-        
         participants.forEach{ (participant) in
-            print("My name is \(participant.name).")
+            print("My name is \(participant.name) \(participant.finishedAddingInterests)")
                 participant.interests.forEach{ (interest) in
                 print ("I like \(interest.name), which involves \(interest.description) and requires \(interest.requiredEquipment)")
                 }
@@ -105,60 +87,121 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBAction func addInterest(_ sender: UIButton) {
         
+               participants = participants.filter ({value in value.finishedAddingInterests == false})
+
+        //increases participantcount by 1
+        participantCountIncrease += 1
+
+ 
         
-        //Let newInterestName equal the selected row in pickerview
-        let newInterestName = interestsData[interestsPickerView.selectedRow(inComponent: 0)]
+        //Only show one available participant in order
+        if participantCountIncrease < participants.count - 1  {
+
+            //Reloads array with Interests from hobby
+            interestsData = hobby.map({$0.name})
+            
+            //reload pickerview after the prior removal above
+            interestsPickerView.delegate = self
+            
+            //Reloads the pickerview to show all interests
+            interestsPickerView.reloadAllComponents()
+            
+
+            
+            print("\(participants[participantCountIncrease].name) please select your interests from the list.")
+            
+
+            
+            //Let newInterestName equal the selected row in pickerview
+            let newInterestName = interestsData[interestsPickerView.selectedRow(inComponent: 0)]
+            
+            //make new interest from structure of Interest with the name as newInterestName
+            let newInterest = Interest(name: newInterestName, description: "some description", requiredEquipment: "equipment")
+            
+            //Append newInterest to the selected participant
+            participants.first { $0.name == participants[participantCountIncrease].name }?.interests.append(newInterest)
+            
+//            //remove selected data from pickerview
+//            interestsData.remove(at: interestsPickerView.selectedRow(inComponent: 0))
+            
+
+
+            
+                    noMoreInterests.enableButton()
+        }
+        if participantCountIncrease == participants.count {
+            participantCountIncrease = 0
+            
+            //********Tring to filter interest for picker list against interests held by participant
+            //interestsData = hobby.map({$0.name}).filter{ !participants[participantCountIncrease].interests.contains(where: $0.)}
+            
+            //Reloads array with Interests from hobby
+            //interestsData = hobby.map({$0.name})
+            
+            //reload pickerview after the prior removal above
+            interestsPickerView.delegate = self
+            
+            //Reloads the pickerview to show all interests
+            interestsPickerView.reloadAllComponents()
+            
+            
+            
+            print("\(participants[participantCountIncrease].name) please select your interests from the list.")
+            
+            
+            
+            //Let newInterestName equal the selected row in pickerview
+            let newInterestName = interestsData[interestsPickerView.selectedRow(inComponent: 0)]
+            
+            //make new interest from structure of Interest with the name as newInterestName
+            let newInterest = Interest(name: newInterestName, description: "some description", requiredEquipment: "equipment")
+            
+            //Append newInterest to the selected participant
+            participants.first { $0.name == participants[participantCountIncrease].name }?.interests.append(newInterest)
+            
+            //            //remove selected data from pickerview
+            //            interestsData.remove(at: interestsPickerView.selectedRow(inComponent: 0))
+            
+            
+            
+            
+            noMoreInterests.enableButton()
+        }
         
-        //make new interest from structure of Interest with the name as newInterestName
-        let newInterest = Interest(name: newInterestName, description: "some description", requiredEquipment: "equipment")
         
-        //Append newInterest to the selected participant
-        participants.first { $0.name == participants[participantCountIncrease].name }?.interests.append(newInterest)
+      
         
        
         
-        //Add each interest to new array for each participant
-        interestDictionary["\(participants[participantCountIncrease].name)"] = (interestDictionary["\(participants[participantCountIncrease].name)"] ?? []) + ["\(interestsData[interestsPickerView.selectedRow(inComponent: 0)])"]
+//        //Add each interest to new array for each participant
+//        interestDictionary["\(participants[participantCountIncrease].name)"] = (interestDictionary["\(participants[participantCountIncrease].name)"] ?? []) + ["\(interestsData[interestsPickerView.selectedRow(inComponent: 0)])"]
         
         
-        //remove selected data from pickerview
-        interestsData.remove(at: interestsPickerView.selectedRow(inComponent: 0))
+
         
         
-        //reload pickerview after the prior removal above
-        interestsPickerView.delegate = self
+
         
-        noMoreInterests.enableButton()
+
         
         
     }
     
     @IBAction func noMoreInterests(_ sender: UIButton) {
         
-        //increases participantcount by 1
-        participantCountIncrease += 1
+        //Trying to find way of amenind finishedAddingInterest falg as true for participant
+        participants[participantCountIncrease].finishedAddingInterests = true
+ 
         
-        //Only show one available participant in order
-        if participantCountIncrease < participants.count {
-            
-            print("\(participants[participantCountIncrease].name) please select your interests from the list.")
-            
-            //Reloads array with Interests from hobby
-            interestsData = hobby.map({$0.name})
-            
-            //Reloads the pickerview to show all interests
-            interestsPickerView.reloadAllComponents()
-        }
-        else {
-            
-            addInterest.disableButton()
-            noMoreInterests.disableButton()
+//
+//            addInterest.disableButton()
+////            noMoreInterests.disableButton()
             playerList.enableButton()
-            interestsPickerView.isHidden = true
-            
-        }
+//            interestsPickerView.isHidden = true
         
-        noMoreInterests.disableButton()
+        
+        
+
         
     }
     
