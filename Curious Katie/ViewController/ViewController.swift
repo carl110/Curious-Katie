@@ -59,7 +59,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         participants.forEach{ (participant) in
             print("My name is \(participant.name) \(participant.finishedAddingInterests)")
                 participant.interests.forEach{ (interest) in
-                print ("I like \(interest.name), which involves \(interest.description) and requires \(interest.requiredEquipment)")
+                print ("I like \(interest.name), which is \(interest.description). And this requires \(interest.requiredEquipment)")
                 }
         }
         valueIncrease += 1
@@ -114,9 +114,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
             //Let newInterestName equal the selected row in pickerview
             let newInterestName = interestsData[interestsPickerView.selectedRow(inComponent: 0)]
+            //lookup against hobbby to pull description
+            let newDescription = hobby.map({$0.description})[hobby.map({$0.name}).index(of: "\(interestsData[interestsPickerView.selectedRow(inComponent: 0)])")!]
+            //lookup against hobby to pull required equipment
+            let newRequiredEquipment = hobby.map({$0.requiredEquipment})[hobby.map({$0.name}).index(of: "\(interestsData[interestsPickerView.selectedRow(inComponent: 0)])")!]
             
             //make new interest from structure of Interest with the name as newInterestName
-            let newInterest = Interest(name: newInterestName, description: "some description", requiredEquipment: "equipment")
+            let newInterest = Interest(name: newInterestName, description: newDescription, requiredEquipment: newRequiredEquipment)
             
             //Append newInterest to the selected participant
             participants.first { $0.name == participants[participantCountIncrease].name }?.interests.append(newInterest)
