@@ -87,7 +87,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBAction func addInterest(_ sender: UIButton) {
         
-               participants = participants.filter ({value in value.finishedAddingInterests == false})
+       
+        //filters participants, but removes them
+        participants = participants.filter {$0.finishedAddingInterests == false}
 
         //increases participantcount by 1
         participantCountIncrease += 1
@@ -136,8 +138,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if participantCountIncrease == participants.count {
             participantCountIncrease = 0
             
-            let interestsData = hobby.filter {$0.name == "\(participants[participantCountIncrease].interests)"}
+            //interestsData = hobby.filter {$0.name == "\(participants[participantCountIncrease].interests)"}
 
+            
             //Reloads array with Interests from hobby
             //interestsData = hobby.map({$0.name})
             
