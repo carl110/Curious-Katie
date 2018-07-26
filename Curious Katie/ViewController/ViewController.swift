@@ -88,8 +88,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func addInterest(_ sender: UIButton) {
         
        
-        //filters participants, but removes them
-        participants = participants.filter {$0.finishedAddingInterests == false}
+        //*************filters participants, but removes them - change to if participant filter is true then continue or next participant
+//        participants = participants.filter {$0.finishedAddingInterests == false}
+        
+        if participants[participantCountIncrease].finishedAddingInterests == true {
+            //increases participantcount by 1
+            participantCountIncrease += 1
+            
+            print("\(participants[participantCountIncrease].name) please select your interests from the list.")
+            
+        }
 
         //increases participantcount by 1
         participantCountIncrease += 1
