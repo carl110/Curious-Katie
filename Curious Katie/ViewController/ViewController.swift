@@ -25,6 +25,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var interestsData = [String]()
     var newInterestName = ""
     var currentPersonAvailableInterests: [String] = []
+    var randParticipants: [String] = []
     
     
     @IBOutlet weak var interestsPickerView: UIPickerView!
@@ -42,18 +43,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
             showParticipants.disableButton()
             startAddingInterests.enableButton()
-
-            
         }
     }
 
-    
-    
-    
-    
-    
-    
-    
     @IBAction func playerList(_ sender: UIButton) {
 
         participants.forEach{ (participant) in
@@ -89,7 +81,23 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
        
         //*************filters participants, but removes them - change to if participant filter is true then continue or next participant
-//        participants = participants.filter {$0.finishedAddingInterests == false}
+
+
+
+        //filtere participants to variable of participants with finishedAddingInteretsts as false
+        let randParticipants = participants.filter {$0.finishedAddingInterests == false}
+        let finishedAddingForParticipants = participants.filter {$0.finishedAddingInterests == true}
+        //change participantCountIncrease to be a random number upto the filtered participants
+        participantCountIncrease = Int(arc4random_uniform(UInt32(randParticipants.count)))
+        
+        //if all participants have finishedAddingInterests as True then
+        if finishedAddingForParticipants.count == participants.count{
+            interestsPickerView.isHidden = true
+            addInterest.disableButton()
+            noMoreInterests.disableButton()
+        }
+        else {
+
         
         func getAvailableInterests(of participant: Person) {
             
@@ -98,9 +106,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let set2: Set<String> = Set(hobby.map{ $0.name})
             
             currentPersonAvailableInterests = Array(set2.subtracting(set1))
+
         }
         
- 
+        interestsData = currentPersonAvailableInterests
+        
+
         //reload pickerview after the prior removal above
         interestsPickerView.delegate = self
         
@@ -111,155 +122,23 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             participants.first { $0.name == participants[participantCountIncrease].name }?.interests.append(myNewInterest)}
         
 
-        print("\(currentPersonAvailableInterests) please select your interests from the list.")
+        
+
+        print("\(randParticipants[participantCountIncrease].name) please select your interests from the list.")
         
 
 
         playerList.enableButton()
         noMoreInterests.enableButton()
-
-//
-//
-//
-//        if participants[participantCountIncrease].finishedAddingInterests == true {
-//
-//            for _ in participants {
-//                if participants[participantCountIncrease].finishedAddingInterests == true {
-//
-//                //increases participantcount by 1
-//                participantCountIncrease += 1
-//
-//                print("\(participants[participantCountIncrease].name) please select your interests from the list.")
-//                } else {
-//                    addInterest.disableButton()
-//                    noMoreInterests.disableButton()
-//                    playerList.enableButton()
-//                    interestsPickerView.isHidden = true
-//                }
-//
-//            }
-//
-//        }
-
-//        //increases participantcount by 1
-//        participantCountIncrease += 1
-//
-//
-//
-//        //Only show one available participant in order
-//        if participantCountIncrease < participants.count - 1  {
-//
-//            //Reloads array with Interests from hobby
-//            interestsData = hobby.map({$0.name})
-//
-//            //reload pickerview after the prior removal above
-//            interestsPickerView.delegate = self
-//
-//            //Reloads the pickerview to show all interests
-//            interestsPickerView.reloadAllComponents()
-//
-//
-//
-//            print("\(participants[participantCountIncrease].name) please select your interests from the list.")
-//
-//
-//            if let myNewInterest = (hobby.filter{ $0.name == newInterestName }).first {
-//                participants.first { $0.name == participants[participantCountIncrease].name }?.interests.append(myNewInterest)
-//            }
-//
-//
-////            //Let newInterestName equal the selected row in pickerview
-////            let newInterestName = interestsData[interestsPickerView.selectedRow(inComponent: 0)]
-////            //lookup against hobbby to pull description
-////            let newDescription = hobby.map({$0.description})[hobby.map({$0.name}).index(of: "\(interestsData[interestsPickerView.selectedRow(inComponent: 0)])")!]
-////            //lookup against hobby to pull required equipment
-////            let newRequiredEquipment = hobby.map({$0.requiredEquipment})[hobby.map({$0.name}).index(of: "\(interestsData[interestsPickerView.selectedRow(inComponent: 0)])")!]
-////
-////            //make new interest from structure of Interest with the name as newInterestName
-////            let newInterest = Interest(name: newInterestName, description: newDescription, requiredEquipment: newRequiredEquipment)
-////
-////            //Append newInterest to the selected participant
-////            participants.first { $0.name == participants[participantCountIncrease].name }?.interests.append(newInterest)
-//
-////            //remove selected data from pickerview
-////            interestsData.remove(at: interestsPickerView.selectedRow(inComponent: 0))
-//
-//
-//
-//
-//                    noMoreInterests.enableButton()
-//        }
-//        if participantCountIncrease == participants.count {
-//            participantCountIncrease = 0
-//
-//            //interestsData = hobby.filter {$0.name == "\(participants[participantCountIncrease].interests)"}
-//
-//
-//            //Reloads array with Interests from hobby
-////            //interestsData = hobby.map({$0.name})
-////
-////            //reload pickerview after the prior removal above
-////            interestsPickerView.delegate = self
-////
-////            //Reloads the pickerview to show all interests
-////            interestsPickerView.reloadAllComponents()
-//
-//
-//
-//
-//
-//
-//
-////            //Let newInterestName equal the selected row in pickerview
-////            let newInterestName = interestsData[interestsPickerView.selectedRow(inComponent: 0)]
-////            //lookup against hobbby to pull description
-////            let newDescription = hobby.map({$0.description})[hobby.map({$0.name}).index(of: "\(interestsData[interestsPickerView.selectedRow(inComponent: 0)])")!]
-////
-//            if let myNewInterest = (hobby.filter{ $0.name == newInterestName }).first {
-//                participants.first { $0.name == participants[participantCountIncrease].name }?.interests.append(myNewInterest)
-////            }
-//
-////            //lookup against hobby to pull required equipment
-////            let newRequiredEquipment = hobby.map({$0.requiredEquipment})[hobby.map({$0.name}).index(of: "\(interestsData[interestsPickerView.selectedRow(inComponent: 0)])")!]
-////
-////            //make new interest from structure of Interest with the name as newInterestName
-////            let newInterest = Interest(name: newInterestName, description: newDescription, requiredEquipment: newRequiredEquipment)
-////
-////            //Append newInterest to the selected participant
-////            participants.first { $0.name == participants[participantCountIncrease].name }?.interests.append(newInterest)
-//
-//            //            //remove selected data from pickerview
-//            //            interestsData.remove(at: interestsPickerView.selectedRow(inComponent: 0))
-//
-//
-//
-//
-//            noMoreInterests.enableButton()
-//        }
-//
         
-      
-        
-       
-        
-//        //Add each interest to new array for each participant
-//        interestDictionary["\(participants[participantCountIncrease].name)"] = (interestDictionary["\(participants[participantCountIncrease].name)"] ?? []) + ["\(interestsData[interestsPickerView.selectedRow(inComponent: 0)])"]
-        
-        
-
-        
-        
-
-        
-
-        
-        
+    }
     }
     
     @IBAction func noMoreInterests(_ sender: UIButton) {
         
         //Trying to find way of amenind finishedAddingInterest falg as true for participant
         participants[participantCountIncrease].finishedAddingInterests = true
+        
  
         
 //
