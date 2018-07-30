@@ -139,6 +139,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         //Trying to find way of amenind finishedAddingInterest falg as true for participant
         participants[participantCountIncrease].finishedAddingInterests = true
         
+        let randParticipants = participants.filter {$0.finishedAddingInterests == false}
+        participantCountIncrease = Int(arc4random_uniform(UInt32(randParticipants.count)))
+        print("\(randParticipants[participantCountIncrease].name) please select your interests from the list.")
  
         
 //
