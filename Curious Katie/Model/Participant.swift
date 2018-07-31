@@ -22,7 +22,7 @@ class Person : Hashable{
     
     
     
-        private static let cities: [String?] = ["Dublin", "Portsmouth", "Clare", "Galway", "Ash Vale", nil]
+    
     
     //Defines Gender for use in the code
     enum Gender: String{
@@ -48,6 +48,8 @@ class Person : Hashable{
         
         
     }
+    
+    private static let cities: [String?] = ["Dublin", "Portsmouth", "Clare", "Galway", "Ash Vale", nil]
     // Dictionary with names as key and gender as value
     private static let people: [String:Gender] = ["John":Gender.male,
                                                   "Jill":Gender.female,

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		898302A120D7AF02004D7E71 /* ConversationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898302A020D7AF02004D7E71 /* ConversationViewModel.swift */; };
+		898302A120D7AF02004D7E71 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898302A020D7AF02004D7E71 /* ViewModel.swift */; };
 		899FEAD120C92CCC0023074A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899FEAD020C92CCC0023074A /* AppDelegate.swift */; };
 		899FEAD320C92CCC0023074A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899FEAD220C92CCC0023074A /* ViewController.swift */; };
 		899FEAD620C92CCC0023074A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 899FEAD420C92CCC0023074A /* Main.storyboard */; };
@@ -16,11 +16,10 @@
 		899FEAE620C92DD20023074A /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899FEAE520C92DD20023074A /* Interest.swift */; };
 		899FEAE820C92DEB0023074A /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899FEAE720C92DEB0023074A /* Participant.swift */; };
 		89AD7CD520FF9EA700521E7C /* UIButton+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD7CD420FF9EA700521E7C /* UIButton+extensions.swift */; };
-		89D444F820CE92DD00B100AE /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D444F720CE92DD00B100AE /* Conversation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		898302A020D7AF02004D7E71 /* ConversationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewModel.swift; sourceTree = "<group>"; };
+		898302A020D7AF02004D7E71 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		899FEACD20C92CCC0023074A /* Curious Katie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Curious Katie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		899FEAD020C92CCC0023074A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		899FEAD220C92CCC0023074A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,7 +30,6 @@
 		899FEAE520C92DD20023074A /* Interest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
 		899FEAE720C92DEB0023074A /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
 		89AD7CD420FF9EA700521E7C /* UIButton+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+extensions.swift"; sourceTree = "<group>"; };
-		89D444F720CE92DD00B100AE /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +86,7 @@
 		899FEAE320C92D550023074A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				898302A020D7AF02004D7E71 /* ConversationViewModel.swift */,
+				898302A020D7AF02004D7E71 /* ViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -98,7 +96,6 @@
 			children = (
 				899FEAE720C92DEB0023074A /* Participant.swift */,
 				899FEAE520C92DD20023074A /* Interest.swift */,
-				89D444F720CE92DD00B100AE /* Conversation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,9 +183,8 @@
 				899FEAD320C92CCC0023074A /* ViewController.swift in Sources */,
 				899FEAD120C92CCC0023074A /* AppDelegate.swift in Sources */,
 				899FEAE620C92DD20023074A /* Interest.swift in Sources */,
-				89D444F820CE92DD00B100AE /* Conversation.swift in Sources */,
 				899FEAE820C92DEB0023074A /* Participant.swift in Sources */,
-				898302A120D7AF02004D7E71 /* ConversationViewModel.swift in Sources */,
+				898302A120D7AF02004D7E71 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
