@@ -18,7 +18,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     let viewModel = ViewModel()
     //currentParticipant is equat to an object from Person
     var currentParticipant: Person!
-    
+    var hobby = Interest.generateGeneralHobbies()
+
     
     
     
@@ -40,40 +41,33 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         nextParticipant()
         showParticipants.disableButton()
+        addInterests.enableButton()
         
         interestsPickerView.reloadAllComponents()
-        //participantList.forEach { (participant) in
-        //            print("My name is \(participant.name), I am \(participant.gender.rawValue) aged \(participant.age) and I live in \(participant.city ?? "Paris")")
-        //
-        //            showParticipants.disableButton()
-        //            startAddingInterests.enableButton()
-        //
-        //        }
-        
+ 
     }
     
     
     @IBAction func addInterests(_ sender: UIButton) {
+
+
+        let newDescription = hobby.map({$0.description})[hobby.map({$0.name}).index(of: "\(viewModel.currentPersonAvailableInterests[interestsPickerView.selectedRow(inComponent: 0)])")!]
         
+        let newRequiredEquipment = hobby.map({$0.requiredEquipment})[hobby.map({$0.name}).index(of: "\(viewModel.currentPersonAvailableInterests[interestsPickerView.selectedRow(inComponent: 0)])")!]
         
-        
-        viewModel.updateParticipant(person: currentParticipant, within: participants, with: Interest(name: viewModel.currentPersonAvailableInterests[interestsPickerView.selectedRow(inComponent: 0)], description: "", requiredEquipment: ""))
+        viewModel.updateParticipant(person: currentParticipant, within: participants, with: Interest(name: viewModel.currentPersonAvailableInterests[interestsPickerView.selectedRow(inComponent: 0)], description: newDescription, requiredEquipment: newRequiredEquipment))
         
         nextParticipant()
         
         interestsPickerView.reloadAllComponents()
-        //        if let myNewInterest = (hobby.filter{ $0.name == newInterestName }).first {
-        //            participants.first { $0.name == participants[participantCountIncrease].name }?.interests.append(myNewInterest)}
-        
-        
-        //print("\(participants[participantCountIncrease].name) please select your interests from the list.")
-        
-        //        startAddingInterests.disableButton()
-        //        addInterest.enableButton()
-        //
-        //        interestsPickerView.isHidden = false
-        
-        
+        //disbles noMoreInterestbutton if participant has not selected any interests
+        if viewModel.currentPersonAvailableInterests.count == 10 {
+            noMoreInterests.disableButton()
+        }
+        //enables noMoreInterests button if participant has atleast 1 interest added
+        if viewModel.currentPersonAvailableInterests.count < 10 {
+            noMoreInterests.enableButton()
+        }
         
     }
     
@@ -85,8 +79,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         viewModel.hasFinished(person: currentParticipant, within: participants)
         nextParticipant()
         interestsPickerView.reloadAllComponents()
-        
-        compareInterests.enableButton()
+        let filtered = participants.filter { $0.finishedAddingInterests == true }
+        if filtered.count == participants.count {
+            compareInterests.enableButton()
+            noMoreInterests.disableButton()
+            addInterests.disableButton()
+        }
+
         
     }
     
@@ -95,10 +94,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBAction func compareInterests(_ sender: UIButton) {
         
+        
         participants.forEach{ (participant) in
-            print("\n My name is \(participant.name)")
+            print("\n\n My name is \(participant.name)")
             participant.interests.forEach{ (interest) in
-                print ("I like \(interest.name), which is \(interest.description). And this requires \(interest.requiredEquipment)")
+                print ("I like \(interest.name), which is \(interest.description).\n And this requires \(interest.requiredEquipment)")
             }
         }
     }
@@ -114,6 +114,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         participantLabel.text = ""
         
+        addInterests.disableButton()
+        noMoreInterests.disableButton()
+        compareInterests.disableButton()
         
         
     }
