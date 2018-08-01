@@ -9,14 +9,11 @@
 import Foundation
 
 class Interest {
-    
-//    public static let name = ["Football", "Rugby", "Snooker", "Swimming", "Paintballing", "Hiking", "Running", "Horse Riding", "Skiing", "Abseiling"]
 
     var name: String
-        //["Football", "Rugby", "Snooker", "Swimming", "Paintballing", "Hiking", "Running", "Horse Riding", "Skiing", "Abseiling"]
     var description: String
     var requiredEquipment: String
-    
+    //creates array of hobby from initialized object in Interest, then assigns array to Interest
     static func generateGeneralHobbies() -> [Interest] {
         var hobby = [Interest]()
         
@@ -33,7 +30,6 @@ class Interest {
         
         hobby.append(contentsOf: [football, rugby, snooker, swimming, paintballing, hiking, running, horseriding, skiing, abseiling])
         
-        
         return hobby
     }
     
@@ -42,21 +38,6 @@ class Interest {
         self.description = description
         self.requiredEquipment = requiredEquipment
 
-    
     }
     
-
 }
-    
-   
-    
-//    func shareInterest() {
-//        print ("I have an name in \(interest), which involves \(description)/n")
-//        if requiredEquipment.isEmpty {
-//        }
-//        else {
-//            print (requiredEquipment)
-//        }
-//    }
-
-

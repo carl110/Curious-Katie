@@ -17,13 +17,6 @@ class Person : Hashable{
     var hashValue: Int {
         return name.hashValue
     }
-    
-
-    
-    
-    
-    
-    
     //Defines Gender for use in the code
     enum Gender: String{
         case male = "Male"
@@ -32,23 +25,22 @@ class Person : Hashable{
     
     var age: Int
     var name: String
+    //uses enum defined above
     var gender: Gender
     var city: String?
+    //sets interest to use Interest structur
     var interests = [Interest]()
     //Initial value of bool is false
     var finishedAddingInterests: Bool = false
-    
     
     init (name:String, age:Int, gender:Gender, city:String?) {
         self.age = age
         self.name = name
         self.gender = gender
         self.city = city
-
-        
-        
     }
     
+    //sets array for cities with optional value
     private static let cities: [String?] = ["Dublin", "Portsmouth", "Clare", "Galway", "Ash Vale", nil]
     // Dictionary with names as key and gender as value
     private static let people: [String:Gender] = ["John":Gender.male,
@@ -65,12 +57,11 @@ class Person : Hashable{
                                                   "Niahm":Gender.female]
     
 
-    
     static func generateParticipants(amount: Int) -> [Person] {
     
         //Set creates an unordered list of participants
         var participants = Set<Person>()
-    
+        //loops the below whilst the ammount of participants is less than nember defined in viewController
         while participants.count < amount {
     
             //random number from count of people
@@ -82,8 +73,6 @@ class Person : Hashable{
             if participants.contains(where: {($0.name == name)}) {
             }
             else {
-            
-    
             //add details to Person Set and append to particpants array
             participants.insert(Person(name: name,
                                        age: 18 + Int(arc4random_uniform(UInt32(70 - 18))),
@@ -91,14 +80,6 @@ class Person : Hashable{
                                        city: cities[Int(arc4random_uniform(UInt32(cities.count)))]))
             }
         }
-    
         return Array(participants)
-        
-        
-
     }
-
-
-
 }
-
