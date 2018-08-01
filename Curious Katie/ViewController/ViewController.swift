@@ -20,36 +20,26 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var currentParticipant: Person!
     var hobby = Interest.generateGeneralHobbies()
 
-    
-    
-    
     @IBOutlet weak var interestsPickerView: UIPickerView!
     @IBOutlet weak var showParticipants: UIButton!
     @IBOutlet weak var compareInterests: UIButton!
     @IBOutlet weak var addInterests: UIButton!
     @IBOutlet weak var noMoreInterests: UIButton!
     @IBOutlet weak var participantLabel: UILabel!
-    
-    
-    
+  
     @IBAction func showParticipants(_ sender: UIButton) {
         
         //Print name and attributes of all participants
         participants.forEach { (participant) in
             print ("My name is \(participant.name), I am \(participant.gender.rawValue) aged \(participant.age) and I live in \(participant.city ?? "Paris")")
         }
-        
         nextParticipant()
         showParticipants.disableButton()
         addInterests.enableButton()
         interestsPickerView.reloadAllComponents()
- 
     }
     
-    
     @IBAction func addInterests(_ sender: UIButton) {
-
-
         //if interests have been depleted then automatically run noMoreInterests button
         if viewModel.currentPersonAvailableInterests.count == 1 {
             noMoreInterests(sender)
@@ -77,10 +67,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
     }
     
-    
-    
     @IBAction func noMoreInterests(_ sender: UIButton) {
-        
         //calls function to change finishedAddingInterests Boolean to true
         viewModel.hasFinished(person: currentParticipant, within: participants)
         nextParticipant()
@@ -93,11 +80,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             addInterests.disableButton()
         }
 
-        
     }
-    
-    
-    
     
     @IBAction func compareInterests(_ sender: UIButton) {
         
@@ -113,44 +96,37 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        //declatres participants as populated participants
         participants = Person.generateParticipants(amount: participantCount)
-        //        interestsData = hobby.map({$0.name})
         interestsPickerView.dataSource = self
         interestsPickerView.delegate = self
-        
         participantLabel.text = ""
-        
         addInterests.disableButton()
         noMoreInterests.disableButton()
         compareInterests.disableButton()
-        
-        
     }
     
     func nextParticipant() {
         
-        //
+        //uses function from viewModel to get a random participant to display
         viewModel.getRandomPerson(participants: participants, onSuccess: { (name) in currentParticipant = name
-            
+            //print participant name in UILabel
             participantLabel.text = ("\(currentParticipant.name) choose your next interest.")
         })
-        {
+        { //this is the onFinish section of getRandomPerson
             participantLabel.text = "Selections Complete"
             interestsPickerView.isHidden = true
-            
         }
     }
-    
-    
-    
+    //number of columns for pickerView
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+    //number of rows for pickerView
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return viewModel.currentPersonAvailableInterests.count
     }
+    //data for pickerview
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return viewModel.currentPersonAvailableInterests[row]
         
