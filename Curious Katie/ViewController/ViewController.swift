@@ -42,7 +42,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         nextParticipant()
         showParticipants.disableButton()
         addInterests.enableButton()
-        
         interestsPickerView.reloadAllComponents()
  
     }
@@ -51,15 +50,22 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func addInterests(_ sender: UIButton) {
 
 
+        //if interests have been depleted then automatically run noMoreInterests button
+        if viewModel.currentPersonAvailableInterests.count == 1 {
+            noMoreInterests(sender)
+        }
+        else {
+        //index lookup for descrition of interest
         let newDescription = hobby.map({$0.description})[hobby.map({$0.name}).index(of: "\(viewModel.currentPersonAvailableInterests[interestsPickerView.selectedRow(inComponent: 0)])")!]
-        
+        //index lookup for requiredEquipment for interests
         let newRequiredEquipment = hobby.map({$0.requiredEquipment})[hobby.map({$0.name}).index(of: "\(viewModel.currentPersonAvailableInterests[interestsPickerView.selectedRow(inComponent: 0)])")!]
-        
+        //add selected interest to Person array
         viewModel.updateParticipant(person: currentParticipant, within: participants, with: Interest(name: viewModel.currentPersonAvailableInterests[interestsPickerView.selectedRow(inComponent: 0)], description: newDescription, requiredEquipment: newRequiredEquipment))
-        
+        //call next participant
         nextParticipant()
-        
+        //reload pickerview with updated interests
         interestsPickerView.reloadAllComponents()
+        }
         //disbles noMoreInterestbutton if participant has not selected any interests
         if viewModel.currentPersonAvailableInterests.count == 10 {
             noMoreInterests.disableButton()
@@ -75,10 +81,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBAction func noMoreInterests(_ sender: UIButton) {
         
-        
+        //calls function to change finishedAddingInterests Boolean to true
         viewModel.hasFinished(person: currentParticipant, within: participants)
         nextParticipant()
         interestsPickerView.reloadAllComponents()
+        //if all participants have finished adding interests then enable/disable buttons
         let filtered = participants.filter { $0.finishedAddingInterests == true }
         if filtered.count == participants.count {
             compareInterests.enableButton()
@@ -94,7 +101,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBAction func compareInterests(_ sender: UIButton) {
         
-        
+        //Print participants with thier interests and data
         participants.forEach{ (participant) in
             print("\n\n My name is \(participant.name)")
             participant.interests.forEach{ (interest) in
