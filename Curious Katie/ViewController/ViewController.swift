@@ -58,16 +58,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             noMoreInterests(sender)
         }
         else {
-
             //newInterests looks up name in pickerview and pulls out data from hobby, using the name to filter - then add name description and required equipment to the Person array
             if let newInterest = (hobby.filter{$0.name == viewModel.currentPersonAvailableInterests[interestsPickerView.selectedRow(inComponent: 0)]}).first {
                 viewModel.updateParticipant(person: currentParticipant, within: participants, with: newInterest)
-                participants.forEach{ (participant) in
-                    print("My name is \(participant.name)")
-                    participant.interests.forEach{ (interest) in
-                        print ("I like \(interest.name),")
-                    }
-                }
             }
         //call next participant
         nextParticipant()
@@ -98,8 +91,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             addInterests.disableButton()
         }
         else {
-            //runs addInterests button to follow if statements
-            addInterests(sender)
+            //call next participant
+            nextParticipant()
+            //reload pickerview with updated interests
+            interestsPickerView.reloadAllComponents()
+            //check if participant has any interests selected, if not then disable button
+            if viewModel.currentPersonAvailableInterests.count == 10 {
+                noMoreInterests.disableButton()
+            }
         }
 
     }
@@ -122,6 +121,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 print (matchedPerson.name)
             }
         }
+        
         compareInterests.disableButton()
         participantLabel.text = ("Paring suggestions can now be found on the Target Output in XCode")
     }

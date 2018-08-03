@@ -7,15 +7,12 @@
 //
 
 import Foundation
-
-class Interest: Hashable {
+//added equatable to compare interests in ViewController
+class Interest: Equatable {
     static func == (lhs: Interest, rhs: Interest) -> Bool {
         return lhs.name == rhs.name
     }
-    
-    var hashValue: Int {
-        return name.hashValue
-    }
+
 
     var name: String
     var description: String
