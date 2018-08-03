@@ -26,6 +26,19 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var addInterests: UIButton!
     @IBOutlet weak var noMoreInterests: UIButton!
     @IBOutlet weak var participantLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        //declatres participants as populated participants
+        participants = Person.generateParticipants(amount: participantCount)
+        interestsPickerView.dataSource = self
+        interestsPickerView.delegate = self
+        participantLabel.text = ""
+        addInterests.disableButton()
+        noMoreInterests.disableButton()
+        compareInterests.disableButton()
+    }
   
     @IBAction func showParticipants(_ sender: UIButton) {
         
@@ -45,12 +58,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             noMoreInterests(sender)
         }
         else {
-        //index lookup for descrition of interest
-        let newDescription = hobby.map({$0.description})[hobby.map({$0.name}).index(of: "\(viewModel.currentPersonAvailableInterests[interestsPickerView.selectedRow(inComponent: 0)])")!]
-        //index lookup for requiredEquipment for interests
-        let newRequiredEquipment = hobby.map({$0.requiredEquipment})[hobby.map({$0.name}).index(of: "\(viewModel.currentPersonAvailableInterests[interestsPickerView.selectedRow(inComponent: 0)])")!]
-        //add selected interest to Person array
-        viewModel.updateParticipant(person: currentParticipant, within: participants, with: Interest(name: viewModel.currentPersonAvailableInterests[interestsPickerView.selectedRow(inComponent: 0)], description: newDescription, requiredEquipment: newRequiredEquipment))
+
+            //newInterests looks up name in pickerview and pulls out data from hobby, using the name to filter - then add name description and required equipment to the Person array
+            if let newInterest = (hobby.filter{$0.name == viewModel.currentPersonAvailableInterests[interestsPickerView.selectedRow(inComponent: 0)]}).first {
+                viewModel.updateParticipant(person: currentParticipant, within: participants, with: newInterest)
+            }
         //call next participant
         nextParticipant()
         //reload pickerview with updated interests
@@ -79,6 +91,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             noMoreInterests.disableButton()
             addInterests.disableButton()
         }
+        else {
+            //runs addInterests button to follow if statements
+            addInterests(sender)
+        }
 
     }
     
@@ -91,20 +107,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 print ("I like \(interest.name), which is \(interest.description).\n And this requires \(interest.requiredEquipment)")
             }
         }
+        participants.forEach { (participant) in
+            let matches = participants.filter{$0.interests != participant.interests}
+            
+            print ("\(participant.name) can connect with: /n")
+            matches.forEach { (matchedPerson) in
+                print (matchedPerson.name)
+            }
+        }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        //declatres participants as populated participants
-        participants = Person.generateParticipants(amount: participantCount)
-        interestsPickerView.dataSource = self
-        interestsPickerView.delegate = self
-        participantLabel.text = ""
-        addInterests.disableButton()
-        noMoreInterests.disableButton()
-        compareInterests.disableButton()
-    }
+
     
     func nextParticipant() {
         

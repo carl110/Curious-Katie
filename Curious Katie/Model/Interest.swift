@@ -8,7 +8,14 @@
 
 import Foundation
 
-class Interest {
+class Interest: Hashable {
+    static func == (lhs: Interest, rhs: Interest) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
+    var hashValue: Int {
+        return name.hashValue
+    }
 
     var name: String
     var description: String
