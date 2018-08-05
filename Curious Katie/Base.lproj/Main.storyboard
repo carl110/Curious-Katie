@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,35 +20,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKT-GN-mSE">
-                                <rect key="frame" x="16" y="234" width="399" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="IYV-wn-cQH"/>
-                                    <constraint firstAttribute="width" constant="320" id="wkz-2i-Dy7"/>
-                                </constraints>
+                                <rect key="frame" x="25" y="226" width="322" height="216"/>
                             </pickerView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pn5-yf-pa5">
-                                <rect key="frame" x="153.5" y="36" width="124" height="30"/>
+                                <rect key="frame" x="-25" y="36" width="123" height="91.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="w3q-Y4-E4m">
-                                        <rect key="frame" x="0.0" y="0.0" width="124" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="123" height="91.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Q46-tj-6vZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="124" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="123" height="91.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="muD-5b-uUm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="30"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uc-3z-qXH">
-                                                                <rect key="frame" x="0.0" y="0.0" width="124" height="30"/>
-                                                                <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <state key="normal" title="Show Participants">
-                                                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="showParticipants:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0fr-3o-yqG"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
+                                                        <rect key="frame" x="0.0" y="0.0" width="123" height="91.5"/>
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
@@ -55,19 +40,8 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wMZ-Cg-XYb">
-                                <rect key="frame" x="116.5" y="96" width="198" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Add Interest/Next Participant">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="addInterests:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pvZ-oI-qlm"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VL-8D-h4X">
-                                <rect key="frame" x="69" y="493" width="237" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VL-8D-h4X">
+                                <rect key="frame" x="68" y="492" width="237" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="No More Interests/Next Participant">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -76,42 +50,69 @@
                                     <action selector="noMoreInterests:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XX9-0S-QD2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJd-1f-LH0">
-                                <rect key="frame" x="16" y="205" width="343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJd-1f-LH0">
+                                <rect key="frame" x="16" y="189.5" width="343" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yA-yM-mmc">
-                                <rect key="frame" x="125" y="607" width="127" height="40"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="w2L-Ue-K37">
+                                <rect key="frame" x="122.5" y="584" width="127" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yA-yM-mmc">
+                                        <rect key="frame" x="0.0" y="0.0" width="127" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Compare Interests">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="compareInterests:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gVF-R4-HAq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wMZ-Cg-XYb">
+                                <rect key="frame" x="87" y="129.5" width="200" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Z3l-HM-k9z"/>
+                                    <constraint firstAttribute="height" constant="30" id="Igj-Hm-TPe"/>
                                 </constraints>
-                                <state key="normal" title="Compare Interests">
+                                <state key="normal" title="Add Interest/Next Participant">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="compareInterests:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gVF-R4-HAq"/>
+                                    <action selector="addInterests:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pvZ-oI-qlm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uc-3z-qXH">
+                                <rect key="frame" x="125" y="62" width="124" height="36.5"/>
+                                <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Show Participants">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showParticipants:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0fr-3o-yqG"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="pn5-yf-pa5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="EXY-fm-wTC"/>
-                            <constraint firstItem="0yA-yM-mmc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Kk5-MT-xkf"/>
-                            <constraint firstItem="FKT-GN-mSE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="YXE-e3-e2V"/>
-                            <constraint firstItem="wMZ-Cg-XYb" firstAttribute="centerX" secondItem="hJd-1f-LH0" secondAttribute="centerX" id="ZvG-XZ-mem"/>
-                            <constraint firstItem="pn5-yf-pa5" firstAttribute="centerX" secondItem="hJd-1f-LH0" secondAttribute="centerX" id="aUE-em-F7g"/>
-                            <constraint firstItem="FKT-GN-mSE" firstAttribute="top" secondItem="hJd-1f-LH0" secondAttribute="bottom" constant="9" id="dkD-B6-i28"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0yA-yM-mmc" secondAttribute="trailing" constant="288" id="fQ3-MV-3PB"/>
-                            <constraint firstItem="FKT-GN-mSE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iTB-p2-B76"/>
-                            <constraint firstItem="wMZ-Cg-XYb" firstAttribute="top" secondItem="pn5-yf-pa5" secondAttribute="bottom" constant="30" id="r5J-ME-Ja5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0yA-yM-mmc" secondAttribute="bottom" constant="16" id="uqW-Jb-7Ku"/>
-                            <constraint firstItem="hJd-1f-LH0" firstAttribute="trailing" secondItem="FKT-GN-mSE" secondAttribute="trailing" id="uuf-9K-LMc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FKT-GN-mSE" secondAttribute="trailing" constant="16" id="vTM-jz-oRu"/>
-                            <constraint firstItem="FKT-GN-mSE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vtU-zp-6T2"/>
-                            <constraint firstItem="hJd-1f-LH0" firstAttribute="leading" secondItem="FKT-GN-mSE" secondAttribute="leading" id="wLx-JD-HNt"/>
+                            <constraint firstItem="2VL-8D-h4X" firstAttribute="top" secondItem="FKT-GN-mSE" secondAttribute="bottom" constant="50" id="4Mx-U1-5Y1"/>
+                            <constraint firstItem="pn5-yf-pa5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="E60-2I-O22"/>
+                            <constraint firstItem="FKT-GN-mSE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="E8O-ZF-PB9"/>
+                            <constraint firstItem="wMZ-Cg-XYb" firstAttribute="top" secondItem="pn5-yf-pa5" secondAttribute="bottom" constant="2" id="FXo-zn-A2z"/>
+                            <constraint firstItem="pn5-yf-pa5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-41" id="LH2-XU-RPX"/>
+                            <constraint firstItem="5uc-3z-qXH" firstAttribute="leading" secondItem="pn5-yf-pa5" secondAttribute="trailing" constant="27" id="NWm-A2-QKa"/>
+                            <constraint firstItem="wMZ-Cg-XYb" firstAttribute="top" secondItem="5uc-3z-qXH" secondAttribute="bottom" constant="31" id="Q59-bZ-Ti9"/>
+                            <constraint firstItem="FKT-GN-mSE" firstAttribute="centerX" secondItem="2VL-8D-h4X" secondAttribute="centerX" id="QxA-zZ-tZu"/>
+                            <constraint firstItem="5uc-3z-qXH" firstAttribute="centerX" secondItem="wMZ-Cg-XYb" secondAttribute="centerX" id="Ulp-Fl-rCk"/>
+                            <constraint firstItem="w2L-Ue-K37" firstAttribute="top" secondItem="2VL-8D-h4X" secondAttribute="bottom" constant="62" id="ZKy-kq-3J0"/>
+                            <constraint firstItem="5uc-3z-qXH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="42" id="aHe-a4-xAw"/>
+                            <constraint firstItem="wMZ-Cg-XYb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="am7-z5-5kh"/>
+                            <constraint firstItem="2VL-8D-h4X" firstAttribute="centerX" secondItem="w2L-Ue-K37" secondAttribute="centerX" id="bgu-WE-fkI"/>
+                            <constraint firstItem="FKT-GN-mSE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="lwf-Ou-Uxk"/>
+                            <constraint firstItem="2VL-8D-h4X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68" id="wQP-T5-Ybk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
