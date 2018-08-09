@@ -123,7 +123,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         
         compareInterests.disableButton()
-        participantLabel.text = ("Paring suggestions can now be found /n on the Target Output in XCode")
+        participantLabel.text = ("Paring suggestions can now be found on the Target Output in XCode")
     }
     
 
