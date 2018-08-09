@@ -19,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		891CCEE9211C69140086ACAB /* Curious Katie.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Curious Katie.pdf"; sourceTree = "<group>"; };
 		898302A020D7AF02004D7E71 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		899FEACD20C92CCC0023074A /* Curious Katie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Curious Katie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		899FEAD020C92CCC0023074A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		899FEACF20C92CCC0023074A /* Curious Katie */ = {
 			isa = PBXGroup;
 			children = (
+				891CCEE9211C69140086ACAB /* Curious Katie.pdf */,
 				89AD7CD320FF9E7600521E7C /* Extensions */,
 				899FEAE420C92D940023074A /* Model */,
 				899FEAE320C92D550023074A /* ViewModel */,
