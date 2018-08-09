@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,28 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKT-GN-mSE">
-                                <rect key="frame" x="25" y="226" width="322" height="216"/>
+                                <rect key="frame" x="28" y="226" width="320" height="216"/>
                             </pickerView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pn5-yf-pa5">
-                                <rect key="frame" x="-25" y="36" width="123" height="91.5"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="w3q-Y4-E4m">
-                                        <rect key="frame" x="0.0" y="0.0" width="123" height="91.5"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Q46-tj-6vZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="123" height="91.5"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="muD-5b-uUm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="123" height="91.5"/>
-                                                    </stackView>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VL-8D-h4X">
-                                <rect key="frame" x="68" y="492" width="237" height="30"/>
+                                <rect key="frame" x="69" y="492" width="237" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="No More Interests/Next Participant">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -50,27 +31,9 @@
                                     <action selector="noMoreInterests:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XX9-0S-QD2"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="w2L-Ue-K37">
-                                <rect key="frame" x="122.5" y="584" width="127" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yA-yM-mmc">
-                                        <rect key="frame" x="0.0" y="0.0" width="127" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Compare Interests">
-                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="compareInterests:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gVF-R4-HAq"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wMZ-Cg-XYb">
-                                <rect key="frame" x="87" y="129.5" width="200" height="30"/>
+                                <rect key="frame" x="88" y="110" width="198" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Igj-Hm-TPe"/>
-                                </constraints>
                                 <state key="normal" title="Add Interest/Next Participant">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -79,7 +42,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uc-3z-qXH">
-                                <rect key="frame" x="125" y="62" width="124" height="36.5"/>
+                                <rect key="frame" x="125" y="50" width="124" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Show Participants">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -88,31 +51,38 @@
                                     <action selector="showParticipants:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0fr-3o-yqG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJd-1f-LH0">
-                                <rect key="frame" x="55" y="158" width="265" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJd-1f-LH0">
+                                <rect key="frame" x="15" y="170" width="345" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yA-yM-mmc">
+                                <rect key="frame" x="124" y="557" width="127" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Compare Interests">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="compareInterests:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gVF-R4-HAq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="2VL-8D-h4X" firstAttribute="top" secondItem="FKT-GN-mSE" secondAttribute="bottom" constant="50" id="4Mx-U1-5Y1"/>
-                            <constraint firstItem="pn5-yf-pa5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="E60-2I-O22"/>
-                            <constraint firstItem="FKT-GN-mSE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="E8O-ZF-PB9"/>
-                            <constraint firstItem="wMZ-Cg-XYb" firstAttribute="top" secondItem="pn5-yf-pa5" secondAttribute="bottom" constant="2" id="FXo-zn-A2z"/>
-                            <constraint firstItem="pn5-yf-pa5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-41" id="LH2-XU-RPX"/>
-                            <constraint firstItem="5uc-3z-qXH" firstAttribute="leading" secondItem="pn5-yf-pa5" secondAttribute="trailing" constant="27" id="NWm-A2-QKa"/>
-                            <constraint firstItem="wMZ-Cg-XYb" firstAttribute="top" secondItem="5uc-3z-qXH" secondAttribute="bottom" constant="31" id="Q59-bZ-Ti9"/>
-                            <constraint firstItem="FKT-GN-mSE" firstAttribute="centerX" secondItem="2VL-8D-h4X" secondAttribute="centerX" id="QxA-zZ-tZu"/>
-                            <constraint firstItem="5uc-3z-qXH" firstAttribute="centerX" secondItem="wMZ-Cg-XYb" secondAttribute="centerX" id="Ulp-Fl-rCk"/>
-                            <constraint firstItem="w2L-Ue-K37" firstAttribute="top" secondItem="2VL-8D-h4X" secondAttribute="bottom" constant="62" id="ZKy-kq-3J0"/>
-                            <constraint firstItem="5uc-3z-qXH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="42" id="aHe-a4-xAw"/>
-                            <constraint firstItem="wMZ-Cg-XYb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="am7-z5-5kh"/>
-                            <constraint firstItem="2VL-8D-h4X" firstAttribute="centerX" secondItem="w2L-Ue-K37" secondAttribute="centerX" id="bgu-WE-fkI"/>
-                            <constraint firstItem="FKT-GN-mSE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="lwf-Ou-Uxk"/>
-                            <constraint firstItem="2VL-8D-h4X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68" id="wQP-T5-Ybk"/>
+                            <constraint firstItem="0yA-yM-mmc" firstAttribute="top" secondItem="2VL-8D-h4X" secondAttribute="bottom" constant="35" id="5jR-4L-YhM"/>
+                            <constraint firstItem="FKT-GN-mSE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9Ht-bv-4bf"/>
+                            <constraint firstItem="FKT-GN-mSE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dud-c6-uEv"/>
+                            <constraint firstItem="hJd-1f-LH0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="Ehf-aR-jty"/>
+                            <constraint firstItem="wMZ-Cg-XYb" firstAttribute="top" secondItem="5uc-3z-qXH" secondAttribute="bottom" constant="30" id="Knf-1h-4Tg"/>
+                            <constraint firstItem="2VL-8D-h4X" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NLO-SF-mtG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hJd-1f-LH0" secondAttribute="trailing" constant="15" id="T36-16-YKs"/>
+                            <constraint firstItem="0yA-yM-mmc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VA5-v6-xDU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0yA-yM-mmc" secondAttribute="bottom" constant="80" id="fWr-cA-KGv"/>
+                            <constraint firstItem="5uc-3z-qXH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gm5-8S-pgh"/>
+                            <constraint firstItem="hJd-1f-LH0" firstAttribute="top" secondItem="wMZ-Cg-XYb" secondAttribute="bottom" constant="30" id="iCG-Bt-uF8"/>
+                            <constraint firstItem="wMZ-Cg-XYb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pih-lY-S7Z"/>
+                            <constraint firstItem="5uc-3z-qXH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="s3v-c7-G3D"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
