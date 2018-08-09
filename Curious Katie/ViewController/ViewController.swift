@@ -105,6 +105,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBAction func compareInterests(_ sender: UIButton) {
         
+        print ("\n\n*****PARTICIPANT INTERESTS*****")
+        
         //Print participants with thier interests and data
         participants.forEach{ (participant) in
             print("\n\n My name is \(participant.name)")
@@ -112,6 +114,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 print ("I like \(interest.name), which is \(interest.description).\n And this requires \(interest.requiredEquipment)")
             }
         }
+        
+        print ("\n\n*****SUGGESTED PARTICIPANT PAIRING*****")
+        
         //print a list of participants with paticipants who have atleast one different interest
         participants.forEach { (participant) in
             let matches = participants.filter{$0.interests != participant.interests}
@@ -123,7 +128,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         
         compareInterests.disableButton()
-        participantLabel.text = ("Paring suggestions can now be found on the Target Output in XCode")
+        participantLabel.text = ("Paring suggestions can now be found on the Target Output")
     }
     
 
