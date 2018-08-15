@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		891CCEF1211CAD070086ACAB /* Curious Katie.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 891CCEF0211CAD070086ACAB /* Curious Katie.pdf */; };
 		898302A120D7AF02004D7E71 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898302A020D7AF02004D7E71 /* ViewModel.swift */; };
+		89948B0621245F8C0028C7D1 /* Curious Katie.docx in Resources */ = {isa = PBXBuildFile; fileRef = 89948B0521245F8C0028C7D1 /* Curious Katie.docx */; };
 		899FEAD120C92CCC0023074A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899FEAD020C92CCC0023074A /* AppDelegate.swift */; };
 		899FEAD320C92CCC0023074A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899FEAD220C92CCC0023074A /* ViewController.swift */; };
 		899FEAD620C92CCC0023074A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 899FEAD420C92CCC0023074A /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		891CCEF0211CAD070086ACAB /* Curious Katie.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Curious Katie.pdf"; path = "../../../../../Curious Katie.pdf"; sourceTree = "<group>"; };
 		898302A020D7AF02004D7E71 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		89948B0521245F8C0028C7D1 /* Curious Katie.docx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Curious Katie.docx"; path = "../../../../../Curious Katie.docx"; sourceTree = "<group>"; };
 		899FEACD20C92CCC0023074A /* Curious Katie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Curious Katie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		899FEAD020C92CCC0023074A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		899FEAD220C92CCC0023074A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 		891CCEEE211CAC8A0086ACAB /* PDF */ = {
 			isa = PBXGroup;
 			children = (
+				89948B0521245F8C0028C7D1 /* Curious Katie.docx */,
 				891CCEF0211CAD070086ACAB /* Curious Katie.pdf */,
 			);
 			path = PDF;
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				899FEADB20C92CD20023074A /* LaunchScreen.storyboard in Resources */,
+				89948B0621245F8C0028C7D1 /* Curious Katie.docx in Resources */,
 				891CCEF1211CAD070086ACAB /* Curious Katie.pdf in Resources */,
 				899FEAD820C92CD20023074A /* Assets.xcassets in Resources */,
 				899FEAD620C92CCC0023074A /* Main.storyboard in Resources */,
