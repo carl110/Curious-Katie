@@ -14,9 +14,10 @@ class Person : Hashable{
         return lhs.name == rhs.name
     }
     
-    var hashValue: Int {
-        return name.hashValue
+    func hash (into hasher: inout Hasher) {
+        hasher.combine(name)
     }
+    
     //Defines Gender for use in the code
     enum Gender: String{
         case male = "Male"
